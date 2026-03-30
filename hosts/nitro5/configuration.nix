@@ -21,19 +21,6 @@
   systemd.coredump.enable              = false;
   boot.kernel.sysctl."kernel.core_pattern" = "/dev/null";
 
-
-  # ── Stylix ──────────────────────────────────────────────────────────────────
-  stylix = {
-    enable    = false;
-    image     = ../../wallpapers/snow.jpg;
-    polarity  = "dark";
-    autoEnable = true;
-    opacity.terminal     = 0.8;
-    opacity.applications = 0.8;
-    targets.console.enable = false;
-  };
-
-
   # ── Imports ─────────────────────────────────────────────────────────────────
   imports = [ ./hardware-configuration.nix ];
 
