@@ -71,7 +71,7 @@
   # networking.proxy.default  = "http://user:password@proxy:port/";
   # networking.proxy.noProxy  = "127.0.0.1,localhost,internal.domain";
   networking.networkmanager.enable = true;
-  networking.firewall.allowedTCPPorts = [ 8384 3923 ];
+  networking.firewall.allowedTCPPorts = [ 8384 3923 ]; #syncthing, copyparty
   # networking.firewall.allowedUDPPorts = [ ... ];
   # networking.firewall.enable = false;
 
@@ -91,6 +91,25 @@
     LC_TIME           = "en_US.UTF-8";
   };
 
+  i18n.supportedLocales = [
+    "en_US.UTF-8/UTF-8"
+    "ja_JP.UTF-8/UTF-8"
+    "zh_CN.UTF-8/UTF-8"
+    "ko_KR.UTF-8/UTF-8"
+  ];
+
+  # ── Input Methods (CJK IME) ──────────────────────────────────────────────────
+# will possibly enable in the future when needed
+# i18n.inputMethod = {
+#   enable = true;
+#   type   = "fcitx5";
+#   fcitx5.addons = with pkgs; [
+#     fcitx5-mozc      # japanese
+#     fcitx5-chinese-addons  # chinese (pinyin etc)
+#     fcitx5-hangul    # korean
+#     fcitx5-gtk       # gtk integration
+#   ];
+# };
 
   # ── Display / Desktop ───────────────────────────────────────────────────────
   services.xserver.enable = true;
@@ -98,7 +117,7 @@
 
   # KDE Plasma 6
   services.desktopManager.plasma6.enable = true;
-  services.displayManager.sddm = {
+  services.displayManager.sddm = { # disabled in favor of tuigreet/greetd - experiencing sddm crashes, probably due to NVIDIA quirks.
     enable         = false;
     wayland.enable = true; # experimental
   };
@@ -367,6 +386,8 @@
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
     nerd-fonts.jetbrains-mono
+    noto-fonts-cjk-sans
+    noto-fonts-cjk-serif  # optional, for serif contexts
   ];
 
 
