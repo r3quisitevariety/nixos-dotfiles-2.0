@@ -256,8 +256,6 @@
     escapeTime   = 0;
     historyLimit = 10000;
     extraConfig  = ''
-      bind-key S-F12 set -g status ; display "status line: #{?status,ON,OFF}"
-
       # pane navigation (hjkl)
       bind h select-pane -L
       bind j select-pane -D
