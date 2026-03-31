@@ -57,7 +57,10 @@
   # networking.wireless.enable = true;  # wpa_supplicant
   # networking.proxy.default  = "http://user:password@proxy:port/";
   # networking.proxy.noProxy  = "127.0.0.1,localhost,internal.domain";
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    wifi.powersave = false;  # Key: disables aggressive power saving
+  };
   networking.firewall.allowedTCPPorts = [ 8384 3923 ]; #syncthing, copyparty
   # networking.firewall.allowedUDPPorts = [ ... ];
   # networking.firewall.enable = false;
@@ -226,6 +229,7 @@
   programs.chromium.enable = true;
   programs.steam.enable    = true;
   programs.nix-ld.enable   = true; # FHS compat fixes
+  programs.pay-respects.enable = true; #press F to pay respects
 
   programs.vim = {
     enable        = true;
@@ -283,6 +287,7 @@
   #  fi
   #'';
 
+
   # yazi: cd into cwd on quit
   programs.bash.interactiveShellInit = ''
     function ya() {
@@ -293,6 +298,9 @@
       fi
       rm -f -- "$tmp"
     }
+
+    eval "$(pay-respects bash --alias)"  # press F to pay respects (thefuck alternative)
+
   '';
 
 
