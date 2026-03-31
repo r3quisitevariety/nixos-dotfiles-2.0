@@ -59,7 +59,7 @@
   # networking.proxy.noProxy  = "127.0.0.1,localhost,internal.domain";
   networking.networkmanager = {
     enable = true;
-    wifi.powersave = false;  # Key: disables aggressive power saving
+    wifi.powersave = false;  # fixes wifi not working from waking suspend
   };
   networking.firewall.allowedTCPPorts = [ 8384 3923 ]; #syncthing, copyparty
   # networking.firewall.allowedUDPPorts = [ ... ];
@@ -190,6 +190,9 @@
     };
   };
 
+  services.power-profiles-daemon.enable = true; #switch between performance, balance, or battery saving
+  services.upower.enable = true; 
+
 
   # ── Audio ───────────────────────────────────────────────────────────────────
   services.pulseaudio.enable = false;
@@ -316,6 +319,7 @@
     cp       = "cp -r";
     edit     = "sudo vim /etc/nixos/configuration.nix";
     v        = "vim";
+    g        = "git";
   };
 
 
@@ -387,6 +391,7 @@
   services.printing.enable = true;
   services.openssh.enable  = true;
   services.flatpak.enable  = true;
+  
 
   services.syncthing = {
     enable           = true;
