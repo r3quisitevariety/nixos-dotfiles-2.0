@@ -9,6 +9,8 @@
 - [ ] modularize configuration into separate imports
 - [ ] plan for asahi linux on nixos :3
 - [ ] optimize git workflow with rebuild switch
+- [ ] declarative firefox, bookmarks, etc
+- [ ] declarative noctalia (https://docs.noctalia.dev/getting-started/nixos/#config-ref)
 
 
 please keep in mind that my dotfiles contains some amount of personal quirks and intricacies that might not be understood by the general public, and I am quite new to NixOS :3
