@@ -11,6 +11,7 @@
 - [ ] optimize git workflow with rebuild switch
 - [ ] declarative firefox, bookmarks, etc
 - [ ] declarative noctalia (https://docs.noctalia.dev/getting-started/nixos/#config-ref)
+- [ ] configure sops nix or agenix
 
 
 Please keep in mind that my dotfiles contains a fair amount of personal quirks and intricacies that might be unintelligible to a random person - I am quite new to NixOS :3
