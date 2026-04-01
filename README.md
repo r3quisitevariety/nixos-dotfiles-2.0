@@ -13,4 +13,7 @@
 - [ ] declarative noctalia (https://docs.noctalia.dev/getting-started/nixos/#config-ref)
 
 
-please keep in mind that my dotfiles contains some amount of personal quirks and intricacies that might be unintellgible - I am quite new to NixOS :3
+Please keep in mind that my dotfiles contains a fair amount of personal quirks and intricacies that might be unintelligible to a random person - I am quite new to NixOS :3
+
+Any feedback is appreciated! <3 
+
