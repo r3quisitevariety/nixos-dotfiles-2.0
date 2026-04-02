@@ -24,6 +24,7 @@
 
   outputs = { self, nixpkgs, mangowm, ... }@inputs: {
     # will add future host names here.
+
     nixosConfigurations.variety = nixpkgs.lib.nixosSystem { 
       system = "x86_64-linux";
       specialArgs = { inherit inputs; }; # fix compiler from bitching about inputs
@@ -31,6 +32,7 @@
         ./hosts/nitro5/configuration.nix 
       ]; 
     };
+
   };
 
 # left off at https://nixos-and-flakes.thiscute.world/nixos-with-flakes/nixos-flake-configuration-explained

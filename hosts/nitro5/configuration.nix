@@ -335,6 +335,7 @@
     kdePackages.qt6ct pywalfox-native
     jq                             # youtube music plugin
     udiskie
+    evtest                         # for bongo cat plugin :3
 
     # mangowc image-toolkit plugin deps
     grim slurp wl-clipboard
@@ -357,7 +358,7 @@
 
     # ── Dev / editors ─────────────────────────────────────────────────────────
     zed-editor vscode obsidian
-    opencode yarn zola
+    opencode yarn zola gh-dash gh
     nb                             #unstable.nb
 
     # ── Desktop apps ──────────────────────────────────────────────────────────
