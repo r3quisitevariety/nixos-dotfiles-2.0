@@ -11,6 +11,8 @@
     enable = true;
     settings = {
       vim.vimAlias = true;
+      vim.opts.tabstop = 2;
+      vim.options.shiftwidth = 2;
       vim.theme = {
         enable = true;
         transparent = true;
