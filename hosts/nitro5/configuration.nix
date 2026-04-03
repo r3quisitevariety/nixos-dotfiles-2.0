@@ -279,7 +279,10 @@
       bind | split-window -h -c "#{pane_current_path}"
       bind - split-window -v -c "#{pane_current_path}"
 
-      #set -g mouse on
+      set -g mouse on
+      set -g set-clipboard on
+      bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "wl-copy"
+      bind -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "wl-copy"
     '';
   };
 

@@ -27,6 +27,7 @@
       };
       vim.lsp = {
         enable = true;
+        #harper-ls.enable = true;
       };     
     };
 
