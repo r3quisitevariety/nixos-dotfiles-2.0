@@ -236,7 +236,7 @@
 
   programs.vim = {
     enable        = true;
-    defaultEditor = true;
+    defaultEditor = false;
     package = pkgs.vim-full.customize {
       name = "vim";
       vimrcConfig.customRC = ''
@@ -309,8 +309,8 @@
 
   # ── Environment ─────────────────────────────────────────────────────────────
   environment.variables = {
-    EDITOR = "vim";
-    VISUAL = "vim";
+    EDITOR = "nvim";
+    VISUAL = "nvim";
   };
 
   environment.shellAliases = {
@@ -318,7 +318,7 @@
     "67"     = "sudo nixos-rebuild switch";
     cp       = "cp -r";
     edit     = "sudo vim /etc/nixos/configuration.nix";
-    v        = "vim";
+    v        = "nvim";
     g        = "git";
   };
 

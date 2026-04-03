@@ -18,11 +18,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nvf = {
+      url = "github:NotAShelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   # outputs can be thought of as arguments - how are we molding and sculpting the inputs?
 
-  outputs = { self, nixpkgs, mangowm, ... }@inputs: {
+  outputs = { self, nixpkgs, mangowm, nvf, ... }@inputs: {
     # will add future host names here.
 
     nixosConfigurations.variety = nixpkgs.lib.nixosSystem { 
@@ -30,6 +35,7 @@
       specialArgs = { inherit inputs; }; # fix compiler from bitching about inputs
       modules = [ 
         ./hosts/nitro5/configuration.nix 
+        ./home/nvf.nix
       ]; 
     };
 
