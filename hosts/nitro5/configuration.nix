@@ -369,6 +369,7 @@
     copyparty unar
     mesa-demos nvtopPackages.nvidia
     nh
+    cinny-desktop
                                    #unstable.newsraft
 
     # ── GNOME extensions ──────────────────────────────────────────────────────
