@@ -358,7 +358,7 @@
     wget tldr fastfetch microfetch
     ffmpeg yt-dlp streamlink rclone
     btop htop w3m python3
-    inputs.yt-x.packages."${system}".default
+    inputs.yt-x.packages."${stdenv.hostPlatform.system}".default
 
     # ── Dev / editors ─────────────────────────────────────────────────────────
     zed-editor vscode obsidian
