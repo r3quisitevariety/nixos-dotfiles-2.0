@@ -323,7 +323,8 @@ in
 
     # ── Wayland / Compositor ──────────────────────────────────────────────────
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
-    fuzzel foot #ghostty
+    fuzzel 
+    nixpkgs-unstable.foot #ghostty
     wlr-randr xwayland-satellite   # xwayland for niri
     hyprshot #cliphist              # screenshot; clipboard (niri)
     kdePackages.qt6ct pywalfox-native # for theming
