@@ -3,11 +3,11 @@
 {
 
   # ── Compositors ─────────────────────────────────────────────────────────────
-  programs.hyprland.enable = true;
-  programs.niri.enable     = true;
-  programs.mangowc.enable  = true;
+  #programs.hyprland.enable = true; # > need these for testing and contributions
+  #programs.niri.enable     = true; # >
+  programs.mangowc.enable  = true; # my actual chosen WM
 
-  # disable coredumps so the jet engine doesn't spin up when switching wm/de
+  # disable coredumps so no jet engine laptop when switching wm's
   systemd.coredump.enable              = false;
   boot.kernel.sysctl."kernel.core_pattern" = "/dev/null";
 
@@ -97,14 +97,14 @@
   services.libinput.enable = true;
 
   # KDE Plasma 6
-  services.desktopManager.plasma6.enable = true;
-  services.displayManager.sddm = { # disabled in favor of tuigreet/greetd - experiencing sddm crashes, probably due to NVIDIA quirks.
-    enable         = false;
-    wayland.enable = true; # experimental
-  };
+  services.desktopManager.plasma6.enable = true; # gives xdg portal, elisa, dolphin, cursor, etc. 
+  #services.displayManager.sddm = { # disabled in favor of tuigreet/greetd - experiencing sddm crashes, probably due to NVIDIA quirks.
+  #  enable         = true;
+  #  wayland.enable = true; # experimental
+  #};
 
   # GNOME
-  services.desktopManager.gnome.enable = true;
+  services.desktopManager.gnome.enable = true; #enabled for fallback + compatibility
   #services.displayManager.gdm.enable = true;
 
   # greetd + tuigreet (active display manager)
@@ -210,12 +210,12 @@
   };
 
   # sail the seven seas
-  users.users.guest = {
-    isNormalUser = true;
-    extraGroups  = [ "wheel" "video" "audio" "games" ];
-    packages     = [ pkgs.steam ];
-    password     = "temp123";
-  };
+  #users.users.guest = {
+  #  isNormalUser = true;
+  #  extraGroups  = [ "wheel" "video" "audio" "games" ];
+  #  packages     = [ pkgs.steam ];
+  #  password     = "temp123";
+  #};
 
 
   # ── Programs ────────────────────────────────────────────────────────────────
@@ -277,9 +277,9 @@
     '';
   };
 
-  # yazi: cd into cwd on quit
+  # bashrc
   programs.bash.interactiveShellInit = ''
-    function ya() {
+    function ya() { # yazi: cd into cwd on quit
       local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
       yazi "$@" --cwd-file="$tmp"
       if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
@@ -315,14 +315,14 @@
 
     # ── Wayland / Compositor ──────────────────────────────────────────────────
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
-    ghostty fuzzel foot
-    wlr-randr xwayland-satellite   # monitor detection; niri xwayland support
-    hyprshot cliphist              # screenshot; clipboard (niri)
-    kdePackages.qt6ct pywalfox-native
-    jq                             # youtube music plugin
+    fuzzel foot #ghostty
+    wlr-randr xwayland-satellite   # xwayland for niri
+    hyprshot #cliphist              # screenshot; clipboard (niri)
+    kdePackages.qt6ct pywalfox-native # for theming
+    jq                              # youtube music plugin
     udiskie
-    evtest                         # for bongo cat plugin :3
-
+    evtest                          # for bongo cat plugin :3
+    mesa-demos nvtopPackages.nvidia #nvidia stuff
     # mangowc image-toolkit plugin deps
     grim slurp wl-clipboard
     tesseract imagemagick zbar     #curl
@@ -334,21 +334,22 @@
     xcbutilkeysyms xcbutilrenderutil xcbutilimage
 
     # ── Build tools ───────────────────────────────────────────────────────────
-    gcc gnumake cmake binutils cfssl
+    gcc gnumake cmake binutils cfssl yarn
 
     # ── CLI utilities ─────────────────────────────────────────────────────────
     git fzf ripgrep fd yazi tree
-    wget tldr fastfetch microfetch
+    wget curl tldr fastfetch microfetch
     ffmpeg yt-dlp streamlink rclone
     btop htop w3m python3
     inputs.yt-x.packages."${stdenv.hostPlatform.system}".default
 
     # ── Dev / editors ─────────────────────────────────────────────────────────
-    zed-editor vscode obsidian
-    opencode yarn zola gh-dash gh
-    nb                             #unstable.nb
+    #zed-editor vscode 
+    obsidian
+    opencode zola gh-dash gh
+    #nb                             #unstable.nb
 
-    # ── Desktop apps ──────────────────────────────────────────────────────────
+    # ── Apps ──────────────────────────────────────────────────────────────────
     mpv obs-studio ani-cli
     vesktop anki-bin heroic
     google-chrome zoom-us qbittorrent
@@ -358,11 +359,6 @@
     nh
     cinny-desktop
                                    #unstable.newsraft
-
-    # ── GNOME extensions ──────────────────────────────────────────────────────
-    gnomeExtensions.tiling-shell
-    gnomeExtensions.pop-shell
-    gnomeExtensions.paperwm
 
   ];
 
