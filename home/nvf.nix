@@ -11,6 +11,11 @@
       vim.vimAlias = true;
       vim.opts.tabstop = 2;
       vim.options.shiftwidth = 2;
+      vim.maps.normal."<leader>w" = { # leader + w to toggle line wrapping (wrapping is on by default)
+        desc = "Toggle word wrap";
+        action = "<cmd>set wrap!<cr>";
+      };
+
       vim.theme = {
         enable = true;
         transparent = true;
@@ -31,6 +36,9 @@
       vim.languages = { # all my languages woohoo
         rust.enable = true;
         nix.enable = true;
+        # markdown for obsidian :3
+        markdown.enable = true;
+        markdown.extensions.markview-nvim.enable = true;
       };
       vim.treesitter.enable = true;
 
