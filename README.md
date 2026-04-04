@@ -2,6 +2,7 @@
 
 ### Notes/Features
 - normie-dots/ are not versioned and are just simple copies of configuration files that I've done imperatively. Will be useful references when refactoring into pure nix lang.
+- my current paradigm is mixed hybrid stable/unstable channels. I've been wanting a more streamlined experience of linux and not feel like a bug tester when I'm trying to do work. Atleast now it's opt in (hopefully). 
 
 
 ### TODO
