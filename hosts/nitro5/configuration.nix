@@ -1,14 +1,4 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running 'nixos-help').
 { config, pkgs, inputs, ... }:
-
-# allows unstable packages to be installed prefixed with unstable.<pkgname>
-#let
-#  unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz") {
-#    config.allowUnfree = true;
-#  };
-#in
 
 {
 
@@ -48,6 +38,7 @@
 
   # ── Boot ────────────────────────────────────────────────────────────────────
   boot.loader.systemd-boot.enable    = true;
+  boot.loader.timeout = 2;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelParams = [ "acpi_backlight=native" ]; # fix backlight
 
@@ -285,14 +276,6 @@
       bind -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "wl-copy"
     '';
   };
-
-  # auto tmux attach on shell start (disabled)
-  #programs.bash.interactiveShellInit = ''
-  #  if [[ -z "$TMUX" && $- == *i* ]]; then
-  #    exec tmux new-session -A -s default
-  #  fi
-  #'';
-
 
   # yazi: cd into cwd on quit
   programs.bash.interactiveShellInit = ''
