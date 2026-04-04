@@ -1,11 +1,15 @@
-{ inputs, ...}:
-# swag aura neovim config using NvF 
+{ inputs, pkgs, ...}:
+# swag aura neovim config using NvF + all programs I use w/ it
 # note that file is NixOS managed, not hm!!!
 
 {
   imports = [ inputs.nvf.nixosModules.default ]; # importing NvF from flake
-  
 
+  # nvf specific dependencies (not exhaustive)
+  environment.systemPackages = with pkgs; [
+    lazygit 
+  ];
+  
   programs.nvf = {
     enable = true; settings = { vim.globals.mapleader = " ";
       vim.vimAlias = true;
