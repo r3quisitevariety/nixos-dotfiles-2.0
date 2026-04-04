@@ -1,11 +1,19 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, pkgs-unstable, inputs, ... }:
+
+let
+  nixpkgs-unstable = import inputs.nixpkgs-unstable {
+    system = pkgs.stdenv.hostPlatform.system;
+    config.allowUnfree = true;
+  };
+in
+
 
 {
 
   # ── Compositors ─────────────────────────────────────────────────────────────
   #programs.hyprland.enable = true; # > need these for testing and contributions
   #programs.niri.enable     = true; # >
-  programs.mangowc.enable  = true; # my actual chosen WM
+  programs.mango.enable  = true; # my actual chosen WM
 
   # disable coredumps so no jet engine laptop when switching wm's
   systemd.coredump.enable              = false;
@@ -330,8 +338,12 @@
     gifski
 
     # ── Bitwig (XCB deps) ─────────────────────────────────────────────────────
-    libxcb xcbutil xcbutilwm
-    xcbutilkeysyms xcbutilrenderutil xcbutilimage
+   nixpkgs-unstable.libxcb 
+   nixpkgs-unstable.xcbutil 
+   nixpkgs-unstable.xcbutilwm
+   nixpkgs-unstable.xcbutilkeysyms 
+   nixpkgs-unstable.xcbutilrenderutil
+   nixpkgs-unstable.xcbutilimage
 
     # ── Build tools ───────────────────────────────────────────────────────────
     gcc gnumake cmake binutils cfssl yarn
@@ -353,7 +365,7 @@
     mpv obs-studio ani-cli
     vesktop anki-bin heroic
     google-chrome zoom-us qbittorrent
-    proton-vpn                     #protonvpn-gui
+    #proton-vpn                     protonvpn-gui
     copyparty unar
     mesa-demos nvtopPackages.nvidia
     nh
