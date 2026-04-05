@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-unstable, inputs, ... }:
+{ config, pkgs, inputs, ... }:
 
 let
   nixpkgs-unstable = import inputs.nixpkgs-unstable {
@@ -328,6 +328,7 @@ in
     wlr-randr xwayland-satellite   # xwayland for niri
     hyprshot #cliphist              # screenshot; clipboard (niri)
     kdePackages.qt6ct 
+    nwg-look  # for gtk theming
     nixpkgs-unstable.pywalfox-native # for theming
     jq                              # youtube music plugin
     udiskie
@@ -373,6 +374,8 @@ in
     mesa-demos nvtopPackages.nvidia
     nh
     cinny-desktop
+    gnomeExtensions.forge
+    gnomeExtensions.pop-shell
                                    #unstable.newsraft
 
   ];
