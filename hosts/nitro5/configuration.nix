@@ -112,7 +112,7 @@ in
   #};
 
   # GNOME
-  services.desktopManager.gnome.enable = true; #enabled for fallback + compatibility
+  #services.desktopManager.gnome.enable = true; #enabled for fallback + compatibility
   #services.displayManager.gdm.enable = true;
 
   # greetd + tuigreet (active display manager)
@@ -314,6 +314,19 @@ in
     edit     = "sudo vim /etc/nixos/configuration.nix";
     v        = "nvim";
     g        = "git";
+  };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [ # "with pkgs" omits needing to prefix each option with it in the function
+      kdePackages.xdg-desktop-portal-kde       
+    ];
+    config.common = {
+      default = [ "kde" ];
+      "org.freedesktop.impl.portal.ScreenCast" = [ "kde" ];
+      "org.freedesktop.impl.portal.Screenshot" = [ "kde" ];
+      "org.freedesktop.impl.portal.FileChooser" = [ "kde" ];
+    };
   };
 
 
