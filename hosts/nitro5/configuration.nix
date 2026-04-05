@@ -11,7 +11,7 @@ in
 {
 
   # ── Compositors ─────────────────────────────────────────────────────────────
-  #programs.hyprland.enable = true; # > need these for testing and contributions
+  programs.hyprland.enable = true; # > need these for testing and contributions
   #programs.niri.enable     = true; # >
   programs.mango.enable  = true; # my actual chosen WM
 
@@ -124,7 +124,7 @@ in
           --time \
           --remember \
           --remember-session \
-          --cmd mango
+          --cmd Hyprland
       '';
       user = "requisite";
     };
