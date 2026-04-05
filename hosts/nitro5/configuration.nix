@@ -112,7 +112,7 @@ in
   #};
 
   # GNOME
-  #services.desktopManager.gnome.enable = true; #enabled for fallback + compatibility
+  services.desktopManager.gnome.enable = true; #enabled for fallback + compatibility
   #services.displayManager.gdm.enable = true;
 
   # greetd + tuigreet (active display manager)
