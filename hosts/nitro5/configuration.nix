@@ -316,20 +316,6 @@ in
     g        = "git";
   };
 
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [ # "with pkgs" omits needing to prefix each option with it in the function
-      kdePackages.xdg-desktop-portal-kde       
-    ];
-    config.common = {
-      default = [ "kde" ];
-      "org.freedesktop.impl.portal.ScreenCast" = [ "kde" ];
-      "org.freedesktop.impl.portal.Screenshot" = [ "kde" ];
-      "org.freedesktop.impl.portal.FileChooser" = [ "kde" ];
-    };
-  };
-
-
   # ── Packages ────────────────────────────────────────────────────────────────
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
