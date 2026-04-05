@@ -326,7 +326,8 @@ in
     nixpkgs-unstable.foot #ghostty
     wlr-randr xwayland-satellite   # xwayland for niri
     hyprshot #cliphist              # screenshot; clipboard (niri)
-    kdePackages.qt6ct pywalfox-native # for theming
+    kdePackages.qt6ct 
+    nixpkgs-unstable.pywalfox-native # for theming
     jq                              # youtube music plugin
     udiskie
     evtest                          # for bongo cat plugin :3
