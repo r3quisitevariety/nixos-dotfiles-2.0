@@ -366,7 +366,8 @@ in
     mpv obs-studio ani-cli
     vesktop anki-bin heroic
     google-chrome zoom-us qbittorrent
-    #proton-vpn                     protonvpn-gui
+    #proton-vpn                     
+    protonvpn-gui
     copyparty unar
     mesa-demos nvtopPackages.nvidia
     nh
