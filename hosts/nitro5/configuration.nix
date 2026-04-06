@@ -104,8 +104,22 @@ in
   services.xserver.enable = true;
   services.libinput.enable = true;
 
+  xdg.portal = { # fixes file picker issues
+    enable = true;
+    extraPortals = [ 
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-gnome
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.kdePackages.xdg-desktop-portal-kde
+    ];
+    config.common =  {
+     default = "hyprland;gtk";
+     "org.freedesktop.impl.portal.FileChooser" = "kde";
+    }; 
+  };
+
   # KDE Plasma 6
-  services.desktopManager.plasma6.enable = true; # gives xdg portal, elisa, dolphin, cursor, etc. 
+  services.desktopManager.plasma6.enable = true; # gives xdg portal, elisa, dolphin, cursor, ui niceties, etc. 
   #services.displayManager.sddm = { # disabled in favor of tuigreet/greetd - experiencing sddm crashes, probably due to NVIDIA quirks.
   #  enable         = true;
   #  wayland.enable = true; # experimental
