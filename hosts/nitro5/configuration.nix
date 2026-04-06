@@ -12,8 +12,8 @@ in
 
   # ── Compositors ─────────────────────────────────────────────────────────────
   programs.hyprland.enable = true; # > need these for testing and contributions
-  #programs.niri.enable     = true; # >
-  programs.mango.enable  = true; # my actual chosen WM
+  programs.niri.enable     = false; # >
+  programs.mango.enable  = false; # my actual chosen WM
 
   # disable coredumps so no jet engine laptop when switching wm's
   systemd.coredump.enable              = false;
