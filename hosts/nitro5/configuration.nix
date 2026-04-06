@@ -323,6 +323,7 @@ in
 
   environment.shellAliases = {
     neofetch = "fastfetch";
+    notes    = "cd ~/Documents/obsidian && nvim";
     "67"     = "sudo nixos-rebuild switch";
     cp       = "cp -r";
     edit     = "sudo vim /etc/nixos/configuration.nix";
