@@ -17,6 +17,7 @@
       vim.vimAlias = true;
       vim.opts.tabstop = 2;
       vim.options.shiftwidth = 2;
+      vim.options.linebreak = true;
       vim.maps.normal."<leader>w" = {
         # leader + w to toggle line wrapping (wrapping is on by default)
         desc = "Toggle word wrap";
@@ -47,7 +48,7 @@
         nix.enable = true;
         # markdown for obsidian :3
         markdown.enable = true;
-        markdown.extensions.markview-nvim.enable = false;
+        markdown.extensions.markview-nvim.enable = true;
       };
       vim.treesitter.enable = true;
 
@@ -152,6 +153,23 @@
           desc = "Obsidian search";
         }
       ];
+
+      vim.maps.normal."<C-w><S-h>" = {
+        action = "20<C-w><";
+        desc = "Resize split left";
+      };
+      vim.maps.normal."<C-w><S-l>" = {
+        action = "20<C-w>>";
+        desc = "Resize split right";
+      };
+      vim.maps.normal."<C-w><S-k>" = {
+        action = "20<C-w>+";
+        desc = "Resize split up";
+      };
+      vim.maps.normal."<C-w><S-j>" = {
+        action = "20<C-w>-";
+        desc = "Resize split down";
+      };
 
       # toggle blink with ctrl + q (disabled by default)
       vim.autocomplete.blink-cmp.setupOpts.completion.menu.auto_show = false;
