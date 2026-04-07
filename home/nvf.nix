@@ -153,6 +153,15 @@
         }
       ];
 
+      # toggle blink with ctrl + q (disabled by default)
+      vim.autocomplete.blink-cmp.setupOpts.completion.menu.auto_show = false;
+      vim.luaConfigPost = ''
+        vim.keymap.set({ "i", "n" }, "<C-q>", function()
+          vim.b.completion = not vim.b.completion
+          require("blink.cmp").hide()
+          vim.notify("Completion " .. (vim.b.completion and "enabled" or "disabled"))
+        end, { desc = "Toggle completion" })
+      '';
 
       vim.extraPlugins = {
         smear-cursor = {
