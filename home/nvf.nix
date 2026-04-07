@@ -153,6 +153,15 @@
         }
       ];
 
+
+      vim.extraPlugins = {
+        smear-cursor = {
+          package = pkgs.vimPlugins.smear-cursor-nvim;
+          setup = ''
+            require("smear_cursor").setup()
+          '';
+        };
+      };
     };
   };
 
