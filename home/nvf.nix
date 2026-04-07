@@ -40,7 +40,8 @@
 
       vim.lsp = {
         enable = true;
-        #harper-ls.enable = true;
+        # harper-ls.enable = true;
+        trouble.enable = true;
       };
       vim.languages = {
         # all my languages woohoo
@@ -48,7 +49,8 @@
         nix.enable = true;
         # markdown for obsidian :3
         markdown.enable = true;
-        markdown.extensions.markview-nvim.enable = true;
+        #markdown.extensions.markview-nvim.enable = true; - normal mode exclusive. kind of jarring
+        #markdown.extensions.render-markdown-nvim.enable = true; - the better one. inline editing
       };
       vim.treesitter.enable = true;
 
@@ -84,9 +86,10 @@
       vim.git.gitsigns.enable = true; # gitsigns > full git integration suite for sake of minimalism. lazygit + tmux is more unix-like
       vim.binds.whichKey.enable = true;
 
+      vim.utility.oil-nvim.enable = true;
+
       #slopsidian
-      vim.autocomplete.blink-cmp.enable = true;
-      vim.globals.vim_markdown_folding_disable = 1;
+      vim.globals.vim_markdown_folding_disable = 1; # doesnt work. adressed in extra lua config.
       vim.notes.obsidian = {
         enable = true;
         setupOpts = {
@@ -124,7 +127,7 @@
         {
           key = "<C-S-d>";
           mode = "n";
-          action = ''o<C-r>=strftime("%A, [[%B %-d, %Y]], %-I:%M%p")<CR><Esc>'';
+          action = ''o<C-r>=strftime("###### %A, [[%B %-d, %Y]], %-I:%M%p")<CR><Esc>'';
           desc = "Insert date-time stamp";
         }
         # o leader key for "obsidian"
@@ -171,16 +174,56 @@
         desc = "Resize split down";
       };
 
-      # toggle blink with ctrl + q (disabled by default)
-      vim.autocomplete.blink-cmp.setupOpts.completion.menu.auto_show = false;
+      #blink (currently really minimal)
+      #vim.autocomplete.blink-cmp.enable = true;
+      #vim.autocomplete.blink-cmp.setupOpts.completion.menu.auto_show = true;
+      # misc config
       vim.luaConfigPost = ''
+        -- disable stoopid fold from obsidian plugin
+        vim.opt.fen = false
+
+        -- blink toggle 
         vim.keymap.set({ "i", "n" }, "<C-q>", function()
           vim.b.completion = not vim.b.completion
           require("blink.cmp").hide()
           vim.notify("Completion " .. (vim.b.completion and "enabled" or "disabled"))
         end, { desc = "Toggle completion" })
-      '';
 
+        -- Force-disable blink.cmp on every insert entry (overrides startup)
+        --vim.api.nvim_create_autocmd("InsertEnter", {
+        --  callback = function()
+        --    vim.b.completion = false
+        --    require("blink.cmp").hide()
+        --  end,
+        --  group = vim.api.nvim_create_augroup("BlinkDisableStartup", { clear = true })
+        --})
+
+        -- Toggle function: flip state, hide/show accordingly
+        vim.keymap.set({ "i", "n" }, "<C-q>", function()
+          vim.b.completion = not vim.b.completion
+          require("blink.cmp")[vim.b.completion and "setup" or "hide"]({})
+          vim.notify("Completion " .. (vim.b.completion and "enabled" or "disabled"))
+        end, { desc = "Toggle completion" })      
+
+
+        -- trouble code actions
+        require("trouble").setup({
+          keys = {
+            ["<cr>"] = function(view)
+              view:jump()
+              vim.schedule(function()
+                vim.lsp.buf.code_action({
+                  apply = true,
+                  filter = function(a) return true end
+                })
+                vim.schedule(function()
+                  require("trouble").focus()
+                end)
+              end)
+            end
+          }
+        })
+      '';
       vim.extraPlugins = {
         smear-cursor = {
           package = pkgs.vimPlugins.smear-cursor-nvim;
