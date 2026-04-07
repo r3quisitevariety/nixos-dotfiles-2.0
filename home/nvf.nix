@@ -117,7 +117,7 @@
         {
           key = "<C-S-d>";
           mode = "i";
-          action = ''<C-r>=strftime("%A, [[%B %-d, %Y]], %-I:%M%p")<CR><CR>'';
+          action = ''<C-r>=strftime("###### %A, [[%B %-d, %Y]], %-I:%M%p")<CR><CR>'';
           desc = "Insert date-time stamp";
         }
         {
