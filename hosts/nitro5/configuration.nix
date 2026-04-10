@@ -5,12 +5,12 @@
   ...
 }:
 
-let
-  nixpkgs-unstable = import inputs.nixpkgs-unstable {
-    system = pkgs.stdenv.hostPlatform.system;
-    config.allowUnfree = true;
-  };
-in
+#let
+#  nixpkgs-unstable = import inputs.nixpkgs-unstable {
+#    system = pkgs.stdenv.hostPlatform.system;
+#    config.allowUnfree = true;
+#  };
+#in
 
 {
 
@@ -146,7 +146,7 @@ in
           --time \
           --remember \
           --remember-session \
-          --cmd Hyprland
+          --cmd start-hyprland
       '';
       user = "requisite";
     };
@@ -349,14 +349,16 @@ in
     # ── Wayland / Compositor ──────────────────────────────────────────────────
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     fuzzel
-    nixpkgs-unstable.foot
+    #nixpkgs-unstable.foot
+    foot
     ghostty
     wlr-randr
     xwayland-satellite # xwayland for niri
     hyprshot # cliphist              # screenshot; clipboard (niri)
     kdePackages.qt6ct
     nwg-look # for gtk theming
-    nixpkgs-unstable.pywalfox-native # for theming
+    #nixpkgs-unstable.pywalfox-native # for theming
+    pywalfox-native
     jq # youtube music plugin
     udiskie
     evtest # for bongo cat plugin :3
@@ -374,12 +376,12 @@ in
     gifski
 
     # ── Bitwig (XCB deps) ─────────────────────────────────────────────────────
-    nixpkgs-unstable.libxcb
-    nixpkgs-unstable.xcbutil
-    nixpkgs-unstable.xcbutilwm
-    nixpkgs-unstable.xcbutilkeysyms
-    nixpkgs-unstable.xcbutilrenderutil
-    nixpkgs-unstable.xcbutilimage
+    libxcb
+    xcbutil
+    xcbutilwm
+    xcbutilkeysyms
+    xcbutilrenderutil
+    xcbutilimage
 
     # ── Build tools ───────────────────────────────────────────────────────────
     gcc
@@ -430,8 +432,7 @@ in
     google-chrome
     zoom-us
     qbittorrent
-    #proton-vpn
-    protonvpn-gui
+    proton-vpn
     copyparty
     unar
     mesa-demos
