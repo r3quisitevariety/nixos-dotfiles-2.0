@@ -1,4 +1,9 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 let
   nixpkgs-unstable = import inputs.nixpkgs-unstable {
@@ -7,25 +12,26 @@ let
   };
 in
 
-
 {
 
   # ── Compositors ─────────────────────────────────────────────────────────────
   programs.hyprland.enable = true; # > need these for testing and contributions
-  programs.niri.enable     = false; # >
-  programs.mango.enable  = false; # my actual chosen WM
+  programs.niri.enable = false; # >
+  programs.mango.enable = false; # my actual chosen WM
 
   # disable coredumps so no jet engine laptop when switching wm's
-  systemd.coredump.enable              = false;
+  systemd.coredump.enable = false;
   boot.kernel.sysctl."kernel.core_pattern" = "/dev/null";
 
   # ── Imports ─────────────────────────────────────────────────────────────────
   imports = [ ./hardware-configuration.nix ];
 
-
   # ── Nix / Flakes ────────────────────────────────────────────────────────────
   nix.package = pkgs.lixPackageSets.stable.lix;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # automatic system upgrades (disabled)
   #system.autoUpgrade = {
@@ -43,13 +49,11 @@ in
   #  options   = "--delete-older-than 30d";
   #};
 
-
   # ── Boot ────────────────────────────────────────────────────────────────────
-  boot.loader.systemd-boot.enable    = true;
+  boot.loader.systemd-boot.enable = true;
   boot.loader.timeout = 2;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelParams = [ "acpi_backlight=native" ]; # fix backlight
-
 
   # ── Networking ──────────────────────────────────────────────────────────────
   networking.hostName = "variety";
@@ -58,26 +62,28 @@ in
   # networking.proxy.noProxy  = "127.0.0.1,localhost,internal.domain";
   networking.networkmanager = {
     enable = true;
-    wifi.powersave = false;  # fixes wifi not working from waking suspend
+    wifi.powersave = false; # fixes wifi not working from waking suspend
   };
-  networking.firewall.allowedTCPPorts = [ 8384 3923 ]; #syncthing, copyparty
+  networking.firewall.allowedTCPPorts = [
+    8384
+    3923
+  ]; # syncthing, copyparty
   # networking.firewall.allowedUDPPorts = [ ... ];
   # networking.firewall.enable = false;
 
-
   # ── Locale / Time ───────────────────────────────────────────────────────────
-  time.timeZone      = "America/New_York";
+  time.timeZone = "America/New_York";
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
-    LC_ADDRESS        = "en_US.UTF-8";
+    LC_ADDRESS = "en_US.UTF-8";
     LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT    = "en_US.UTF-8";
-    LC_MONETARY       = "en_US.UTF-8";
-    LC_NAME           = "en_US.UTF-8";
-    LC_NUMERIC        = "en_US.UTF-8";
-    LC_PAPER          = "en_US.UTF-8";
-    LC_TELEPHONE      = "en_US.UTF-8";
-    LC_TIME           = "en_US.UTF-8";
+    LC_MEASUREMENT = "en_US.UTF-8";
+    LC_MONETARY = "en_US.UTF-8";
+    LC_NAME = "en_US.UTF-8";
+    LC_NUMERIC = "en_US.UTF-8";
+    LC_PAPER = "en_US.UTF-8";
+    LC_TELEPHONE = "en_US.UTF-8";
+    LC_TIME = "en_US.UTF-8";
   };
 
   i18n.supportedLocales = [
@@ -88,45 +94,46 @@ in
   ];
 
   # ── Input Methods (CJK IME) ──────────────────────────────────────────────────
-# will possibly enable in the future when needed
-# i18n.inputMethod = {
-#   enable = true;
-#   type   = "fcitx5";
-#   fcitx5.addons = with pkgs; [
-#     fcitx5-mozc      # japanese
-#     fcitx5-chinese-addons  # chinese (pinyin etc)
-#     fcitx5-hangul    # korean
-#     fcitx5-gtk       # gtk integration
-#   ];
-# };
+  # will possibly enable in the future when needed
+  # i18n.inputMethod = {
+  #   enable = true;
+  #   type   = "fcitx5";
+  #   fcitx5.addons = with pkgs; [
+  #     fcitx5-mozc      # japanese
+  #     fcitx5-chinese-addons  # chinese (pinyin etc)
+  #     fcitx5-hangul    # korean
+  #     fcitx5-gtk       # gtk integration
+  #   ];
+  # };
 
   # ── Display / Desktop ───────────────────────────────────────────────────────
   services.xserver.enable = true;
   services.libinput.enable = true;
 
-  xdg.portal = { # fixes file picker issues
+  xdg.portal = {
+    # fixes file picker issues
     enable = true;
-    extraPortals = [ 
+    extraPortals = [
       pkgs.xdg-desktop-portal-hyprland
       pkgs.xdg-desktop-portal-gnome
       pkgs.xdg-desktop-portal-gtk
       pkgs.kdePackages.xdg-desktop-portal-kde
     ];
-    config.common =  {
-     default = "hyprland;gtk";
-     "org.freedesktop.impl.portal.FileChooser" = "kde";
-    }; 
+    config.common = {
+      default = "hyprland;gtk";
+      "org.freedesktop.impl.portal.FileChooser" = "kde";
+    };
   };
 
   # KDE Plasma 6
-  services.desktopManager.plasma6.enable = true; # gives xdg portal, elisa, dolphin, cursor, ui niceties, etc. 
+  services.desktopManager.plasma6.enable = true; # gives xdg portal, elisa, dolphin, cursor, ui niceties, etc.
   #services.displayManager.sddm = { # disabled in favor of tuigreet/greetd - experiencing sddm crashes, probably due to NVIDIA quirks.
   #  enable         = true;
   #  wayland.enable = true; # experimental
   #};
 
   # GNOME
-  services.desktopManager.gnome.enable = true; #enabled for fallback + compatibility
+  services.desktopManager.gnome.enable = true; # enabled for fallback + compatibility
   #services.displayManager.gdm.enable = true;
 
   # greetd + tuigreet (active display manager)
@@ -148,11 +155,10 @@ in
   services.seatd.enable = true;
 
   # use KDE's ksshaskpass for keyring auth on both DEs
-  programs.ssh.askPassword =
-    pkgs.lib.mkForce "${pkgs.kdePackages.ksshaskpass.out}/bin/ksshaskpass";
+  programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.kdePackages.ksshaskpass.out}/bin/ksshaskpass";
 
   services.xserver.xkb = {
-    layout  = "us";
+    layout = "us";
     variant = "";
     #options = "caps:escape"; # bind caps to escape (using keyd instead)
   };
@@ -166,66 +172,72 @@ in
     };
   };
 
-
   # ── Hardware ────────────────────────────────────────────────────────────────
   hardware.graphics.enable = true;
 
   # NVIDIA PRIME offload (Acer Nitro 5, RTX 4060)
   hardware.nvidia = {
-    open              = false;
-    modesetting.enable   = true;
+    open = false;
+    modesetting.enable = true;
     powerManagement.enable = true;
-    nvidiaSettings    = true;
-    package           = config.boot.kernelPackages.nvidiaPackages.stable;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
     prime = {
-      intelBusId  = "PCI:0@0:2:0";
+      intelBusId = "PCI:0@0:2:0";
       nvidiaBusId = "PCI:1@0:0:0";
       offload = {
-        enable           = true;
+        enable = true;
         enableOffloadCmd = true; # use `nvidia-offload <cmd>` to explicitly invoke dGPU
       };
     };
   };
 
   # modesetting driver so xserver doesn't hog the GPU in the background
-  services.xserver.videoDrivers = [ "modesetting" "nvidia" ];
+  services.xserver.videoDrivers = [
+    "modesetting"
+    "nvidia"
+  ];
 
   hardware.bluetooth = {
-    enable       = true;
-    powerOnBoot  = true;
+    enable = true;
+    powerOnBoot = true;
     settings = {
       General = {
-        ControllerMode  = "dual";
-        Experimental    = true;
+        ControllerMode = "dual";
+        Experimental = true;
         FastConnectable = true;
       };
       Policy.AutoEnable = true;
     };
   };
 
-  services.power-profiles-daemon.enable = true; #switch between performance, balance, or battery saving
-  services.upower.enable = true; 
-
+  services.power-profiles-daemon.enable = true; # switch between performance, balance, or battery saving
+  services.upower.enable = true;
 
   # ── Audio ───────────────────────────────────────────────────────────────────
   services.pulseaudio.enable = false;
-  security.rtkit.enable      = true;
+  security.rtkit.enable = true;
   services.pipewire = {
-    enable            = true;
-    alsa.enable       = true;
+    enable = true;
+    alsa.enable = true;
     alsa.support32Bit = true;
-    pulse.enable      = true;
+    pulse.enable = true;
     #jack.enable      = true;
     #media-session.enable = true;
   };
 
-
   # ── Users ───────────────────────────────────────────────────────────────────
   users.users.requisite = {
     isNormalUser = true;
-    description  = "rqvrty";
-    extraGroups  = [ "networkmanager" "wheel" "seat" "input" "video" ];
-    packages     = with pkgs; [
+    description = "rqvrty";
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "seat"
+      "input"
+      "video"
+    ];
+    packages = with pkgs; [
       prometheus-nvidia-gpu-exporter
       #thunderbird
     ];
@@ -239,16 +251,15 @@ in
   #  password     = "temp123";
   #};
 
-
   # ── Programs ────────────────────────────────────────────────────────────────
-  programs.firefox.enable  = true;
+  programs.firefox.enable = true;
   programs.chromium.enable = true;
-  programs.steam.enable    = true;
-  programs.nix-ld.enable   = true; # FHS compat fixes
-  programs.pay-respects.enable = true; #press F to pay respects
+  programs.steam.enable = true;
+  programs.nix-ld.enable = true; # FHS compat fixes
+  programs.pay-respects.enable = true; # press F to pay respects
 
   programs.vim = {
-    enable        = true;
+    enable = true;
     defaultEditor = false;
     package = pkgs.vim-full.customize {
       name = "vim";
@@ -271,11 +282,11 @@ in
   programs.nano.enable = false;
 
   programs.tmux = {
-    enable       = true;
-    shortcut     = "b";
-    escapeTime   = 0;
+    enable = true;
+    shortcut = "b";
+    escapeTime = 0;
     historyLimit = 10000;
-    extraConfig  = ''
+    extraConfig = ''
       # pane navigation (hjkl)
       bind h select-pane -L
       bind j select-pane -D
@@ -314,7 +325,6 @@ in
 
   '';
 
-
   # ── Environment ─────────────────────────────────────────────────────────────
   environment.variables = {
     EDITOR = "nvim";
@@ -323,12 +333,12 @@ in
 
   environment.shellAliases = {
     neofetch = "fastfetch";
-    notes    = "cd ~/Documents/obsidian && nvim";
-    "67"     = "sudo nixos-rebuild switch";
-    cp       = "cp -r";
-    edit     = "sudo vim /etc/nixos/configuration.nix";
-    v        = "nvim";
-    g        = "git";
+    notes = "cd ~/Documents/obsidian && nvim";
+    "67" = "sudo nixos-rebuild switch";
+    cp = "cp -r";
+    edit = "sudo vim /etc/nixos/configuration.nix";
+    v = "nvim";
+    g = "git";
   };
 
   # ── Packages ────────────────────────────────────────────────────────────────
@@ -337,85 +347,120 @@ in
 
     # ── Wayland / Compositor ──────────────────────────────────────────────────
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
-    fuzzel 
-    nixpkgs-unstable.foot 
+    fuzzel
+    nixpkgs-unstable.foot
     ghostty
-    wlr-randr xwayland-satellite   # xwayland for niri
-    hyprshot #cliphist              # screenshot; clipboard (niri)
-    kdePackages.qt6ct 
-    nwg-look  # for gtk theming
+    wlr-randr
+    xwayland-satellite # xwayland for niri
+    hyprshot # cliphist              # screenshot; clipboard (niri)
+    kdePackages.qt6ct
+    nwg-look # for gtk theming
     nixpkgs-unstable.pywalfox-native # for theming
-    jq                              # youtube music plugin
+    jq # youtube music plugin
     udiskie
-    evtest                          # for bongo cat plugin :3
-    mesa-demos nvtopPackages.nvidia #nvidia stuff
+    evtest # for bongo cat plugin :3
+    mesa-demos
+    nvtopPackages.nvidia # nvidia stuff
     # mangowc image-toolkit plugin deps
-    grim slurp wl-clipboard
-    tesseract imagemagick zbar     #curl
-    translate-shell wf-recorder   #ffmpeg
+    grim
+    slurp
+    wl-clipboard
+    (tesseract.override { enableLanguages = [ "eng" ]; })
+    imagemagick
+    zbar # curl
+    translate-shell
+    wf-recorder # ffmpeg
     gifski
 
     # ── Bitwig (XCB deps) ─────────────────────────────────────────────────────
-   nixpkgs-unstable.libxcb 
-   nixpkgs-unstable.xcbutil 
-   nixpkgs-unstable.xcbutilwm
-   nixpkgs-unstable.xcbutilkeysyms 
-   nixpkgs-unstable.xcbutilrenderutil
-   nixpkgs-unstable.xcbutilimage
+    nixpkgs-unstable.libxcb
+    nixpkgs-unstable.xcbutil
+    nixpkgs-unstable.xcbutilwm
+    nixpkgs-unstable.xcbutilkeysyms
+    nixpkgs-unstable.xcbutilrenderutil
+    nixpkgs-unstable.xcbutilimage
 
     # ── Build tools ───────────────────────────────────────────────────────────
-    gcc gnumake cmake binutils cfssl yarn
+    gcc
+    gnumake
+    cmake
+    binutils
+    cfssl
+    yarn
 
     # ── CLI utilities ─────────────────────────────────────────────────────────
-    git fzf ripgrep fd yazi tree
-    wget curl tldr fastfetch microfetch
-    ffmpeg yt-dlp streamlink rclone
-    btop htop w3m python3
+    git
+    fzf
+    ripgrep
+    fd
+    yazi
+    tree
+    wget
+    curl
+    tldr
+    fastfetch
+    microfetch
+    ffmpeg
+    yt-dlp
+    streamlink
+    rclone
+    btop
+    htop
+    w3m
+    python3
     inputs.yt-x.packages."${stdenv.hostPlatform.system}".default
 
     # ── Dev / editors ─────────────────────────────────────────────────────────
-    #zed-editor vscode 
+    #zed-editor vscode
     obsidian
-    opencode zola gh-dash gh
+    opencode
+    zola
+    gh-dash
+    gh
     #nb                             #unstable.nb
 
     # ── Apps ──────────────────────────────────────────────────────────────────
-    mpv obs-studio ani-cli
-    vesktop anki-bin heroic
-    google-chrome zoom-us qbittorrent
-    #proton-vpn                     
+    mpv
+    obs-studio
+    ani-cli
+    vesktop
+    anki-bin
+    heroic
+    google-chrome
+    zoom-us
+    qbittorrent
+    #proton-vpn
     protonvpn-gui
-    copyparty unar
-    mesa-demos nvtopPackages.nvidia
+    copyparty
+    unar
+    mesa-demos
+    nvtopPackages.nvidia
     nh
     cinny-desktop
     gnomeExtensions.forge
     gnomeExtensions.pop-shell
-                                   #unstable.newsraft
+    #unstable.newsraft
 
   ];
-
 
   # ── Fonts ───────────────────────────────────────────────────────────────────
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
     nerd-fonts.jetbrains-mono
     noto-fonts-cjk-sans
-    noto-fonts-cjk-serif  # optional, for serif contexts
+    noto-fonts-cjk-serif # optional, for serif contexts
   ];
-
 
   # ── Services ────────────────────────────────────────────────────────────────
   services.printing.enable = true;
-  services.openssh.enable  = true;
-  services.flatpak.enable  = true;
-  
+  services.openssh.enable = true;
+  services.flatpak.enable = true;
 
   services.syncthing = {
-    enable           = true;
+    enable = true;
     openDefaultPorts = true; # does NOT open the GUI port
-    user             = "requisite";
-    configDir        = "/home/requisite/.config/syncthing";
+    user = "requisite";
+    configDir = "/home/requisite/.config/syncthing";
   };
 
   services.tailscale = {
@@ -429,13 +474,13 @@ in
   #   enableSSHSupport = true;
   # };
 
-
   # ── Swap ────────────────────────────────────────────────────────────────────
-  swapDevices = [{
-    device = "/swapfile";
-    size   = 8192; # 8GB
-  }];
-
+  swapDevices = [
+    {
+      device = "/swapfile";
+      size = 8192; # 8GB
+    }
+  ];
 
   # ── Invidious (disabled) ────────────────────────────────────────────────────
   #services.invidious = {
@@ -462,7 +507,6 @@ in
   #    environment.SERVER_SECRET_KEY = "Uxep6ohv7sungie7"; # match above
   #  };
   #};
-
 
   system.stateVersion = "25.11"; # did you read the comment?
 
