@@ -67,6 +67,7 @@ in
   networking.firewall.allowedTCPPorts = [
     8384
     3923
+    8000
   ]; # syncthing, copyparty
   # networking.firewall.allowedUDPPorts = [ ... ];
   # networking.firewall.enable = false;
