@@ -123,6 +123,8 @@
     config.common = {
       default = "hyprland;gtk";
       "org.freedesktop.impl.portal.FileChooser" = "kde";
+      "org.freedesktop.impl.portal.Secret" = "kwallet";
+      "org.freedesktop.impl.portal.Settings" = "kde"; # for calendar
     };
   };
 
@@ -135,6 +137,9 @@
 
   # GNOME
   services.desktopManager.gnome.enable = true; # enabled for fallback + compatibility
+  environment.gnome.excludePackages = with pkgs; [
+    gnome-calendar
+  ];
   #services.displayManager.gdm.enable = true;
 
   # greetd + tuigreet (active display manager)
@@ -253,7 +258,10 @@
   #};
 
   # ── Programs ────────────────────────────────────────────────────────────────
-  programs.firefox.enable = true;
+  programs.firefox = {
+    enable = true;
+    nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];
+  };
   programs.chromium.enable = true;
   programs.steam.enable = true;
   programs.nix-ld.enable = true; # FHS compat fixes
@@ -348,6 +356,7 @@
 
     # ── Wayland / Compositor ──────────────────────────────────────────────────
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+    evolution-data-server
     fuzzel
     #nixpkgs-unstable.foot
     foot
@@ -442,6 +451,7 @@
     gnomeExtensions.forge
     gnomeExtensions.pop-shell
     #unstable.newsraft
+    firefoxpwa
 
   ];
 
@@ -510,6 +520,26 @@
   #  };
   #};
 
+  #  services.radicale = {
+  #    enable = true;
+  #    settings = {
+  #      server = {
+  #        hosts = [
+  #          "0.0.0.0:5232"
+  #          "[::]:5232"
+  #        ];
+  #      };
+  #      auth = {
+  #        type = "htpasswd";
+  #        htpasswd_filename = "~/code/radicale/users/";
+  #        htpasswd_encryption = "bcrypt";
+  #      };
+  #      storage = {
+  #        filesystem_folder = "~/code/radicale/collections";
+  #      };
+  #    };
+  #  };
+  #
   system.stateVersion = "25.11"; # did you read the comment?
 
 }
