@@ -55,16 +55,16 @@
   ];
 
   #ollama suckzzz, kobold better (just using for embed text ig)
-  services.ollama = {
-    enable = true;
-    package = pkgs.ollama-cuda;
-    host = "127.0.0.1";
-    loadModels = [
-      # weird, doesnt work, looks like u gotta do it imperatively still
-      #"gemma4:e4b"
-      #"nomic-embed-text-v2-moe:latest"
-    ];
-  };
+  #  services.ollama = {
+  #    enable = true;
+  #    package = pkgs.ollama-cuda;
+  #    host = "127.0.0.1";
+  #    loadModels = [
+  #      # weird, doesnt work, looks like u gotta do it imperatively still
+  #      #"gemma4:e4b"
+  #      #"nomic-embed-text-v2-moe:latest"
+  #    ];
+  #  };
   #
   #  services.sillytavern = {
   #    enable = true;

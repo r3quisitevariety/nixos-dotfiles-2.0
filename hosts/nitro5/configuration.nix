@@ -424,6 +424,7 @@
 
     # ── Dev / editors ─────────────────────────────────────────────────────────
     #zed-editor vscode
+    vscode
     obsidian
     opencode
     zola
