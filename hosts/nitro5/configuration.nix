@@ -490,7 +490,7 @@
   swapDevices = [
     {
       device = "/swapfile";
-      size = 8192; # 8GB
+      size = 16192; # 16GB (needed to double for slop)
     }
   ];
 
