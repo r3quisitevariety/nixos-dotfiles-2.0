@@ -5,7 +5,7 @@
 {
   imports = [ inputs.nvf.nixosModules.default ]; # importing NvF from flake
 
-  # nvf specific dependencies (not exhaustive)
+  # nvf specific tooling (not exhaustive)
   environment.systemPackages = with pkgs; [
     lazygit
   ];
