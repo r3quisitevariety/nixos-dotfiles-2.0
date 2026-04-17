@@ -423,7 +423,7 @@
     inputs.yt-x.packages."${stdenv.hostPlatform.system}".default
 
     # ── Dev / editors ─────────────────────────────────────────────────────────
-    #zed-editor vscode
+    zed-editor
     vscode
     obsidian
     opencode
