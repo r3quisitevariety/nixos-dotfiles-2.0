@@ -366,9 +366,7 @@
 
     # ── Wayland / Compositor ──────────────────────────────────────────────────
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
-    evolution-data-server
     fuzzel
-    #nixpkgs-unstable.foot
     foot
     ghostty
     wlr-randr
@@ -433,14 +431,11 @@
     inputs.yt-x.packages."${stdenv.hostPlatform.system}".default
 
     # ── Dev / editors ─────────────────────────────────────────────────────────
-    zed-editor
     vscode
     obsidian
     opencode
     zola
-    gh-dash
     gh
-    #nb                             #unstable.nb
 
     # ── Apps ──────────────────────────────────────────────────────────────────
     mpv
@@ -456,12 +451,8 @@
     protonup-qt
     copyparty
     unar
-    mesa-demos
-    nvtopPackages.nvidia
     nh
     cinny-desktop
-    gnomeExtensions.forge
-    gnomeExtensions.pop-shell
     #unstable.newsraft
     firefoxpwa
 
