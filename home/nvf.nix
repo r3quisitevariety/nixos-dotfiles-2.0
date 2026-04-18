@@ -8,8 +8,11 @@
   # nvf specific tooling (not exhaustive)
   environment.systemPackages = with pkgs; [
     lazygit
+    cargo
+    rustc
   ];
 
+  ###### BASE NVIM STUFF ######
   programs.nvf = {
     enable = true;
     settings = {
@@ -23,7 +26,6 @@
         desc = "Toggle word wrap";
         action = "<cmd>set wrap!<cr>";
       };
-
       vim.theme = {
         enable = true;
         transparent = true;
@@ -31,32 +33,28 @@
         style = "main";
       };
       vim.clipboard = {
-        # change clipboard provider if you are not on wayland.
         enable = true;
         registers = "unnamedplus";
-        #providers.wl-copy.enable = true;
-        #providers.wl-copy.package = pkgs.wl-clipboard;
       };
 
+      ###### LANGUAGES, LSP, ETC ######
       vim.lsp = {
         enable = true;
         # harper-ls.enable = true;
         trouble.enable = true;
       };
+
       vim.languages = {
-        # all my languages woohoo
         rust.enable = true;
         nix.enable = true;
-        # markdown for obsidian :3
         markdown.enable = true;
-        #markdown.extensions.markview-nvim.enable = true; - normal mode exclusive. kind of jarring
-        #markdown.extensions.render-markdown-nvim.enable = true; - the better one. inline editing
       };
+
       vim.treesitter.enable = true;
 
-      # extensible plugins
+      ###### PLUGINS, ADD-ONS ######
       vim.telescope.enable = true;
-      # setup opts are needed for plugin to work
+
       vim.formatter.conform-nvim = {
         enable = true;
         setupOpts = {
@@ -70,6 +68,7 @@
           };
         };
       };
+
       vim.filetree.neo-tree.enable = true;
       vim.maps.normal."<leader>e" = {
         # code from notashelf on NvF github :3
@@ -224,6 +223,7 @@
           }
         })
       '';
+
       vim.extraPlugins = {
         smear-cursor = {
           package = pkgs.vimPlugins.smear-cursor-nvim;
