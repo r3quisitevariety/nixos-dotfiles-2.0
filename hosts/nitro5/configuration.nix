@@ -444,7 +444,7 @@
 
     # ── Apps ──────────────────────────────────────────────────────────────────
     mpv
-    obs-studio
+    qdirstat
     ani-cli
     vesktop
     anki-bin

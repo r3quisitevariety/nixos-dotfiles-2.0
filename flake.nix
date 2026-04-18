@@ -55,6 +55,7 @@
           ./home/llms.nix
           ./home/nvf.nix
           ./home/vr.nix
+          ./home/obs.nix
         ];
       };
 
