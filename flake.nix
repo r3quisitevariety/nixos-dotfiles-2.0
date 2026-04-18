@@ -52,8 +52,9 @@
         modules = [
           mangowm.nixosModules.mango
           ./hosts/nitro5/configuration.nix
-          ./home/nvf.nix
           ./home/llms.nix
+          ./home/nvf.nix
+          ./home/vr.nix
         ];
       };
 
