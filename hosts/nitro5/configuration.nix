@@ -448,6 +448,7 @@
     zoom-us
     qbittorrent
     proton-vpn
+    proton-vpn-cli
     protonup-qt
     copyparty
     unar
