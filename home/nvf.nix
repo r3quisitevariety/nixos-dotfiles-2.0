@@ -82,7 +82,7 @@
         mappings.open = "<C-space>";
       };
 
-      vim.git.gitsigns.enable = true; # gitsigns > full git integration suite for sake of minimalism. lazygit + tmux is more unix-like
+      vim.git.gitsigns.enable = false; # gitsigns > full git integration suite for sake of minimalism. lazygit + tmux is more unix-like
       vim.binds.whichKey.enable = true;
 
       vim.utility.oil-nvim.enable = true;
