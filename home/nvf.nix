@@ -106,6 +106,7 @@
           };
           legacy_commands = false;
           ui.enable = false;
+          frontmatter.enabled = false; # just realized this, but the options are from the obsidian.nvim project, not nvf (i got a depracation warning from the plugin)
         };
       };
 
