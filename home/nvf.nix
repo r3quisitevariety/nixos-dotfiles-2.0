@@ -121,13 +121,13 @@
         {
           key = "<C-S-d>";
           mode = "i";
-          action = ''<C-r>=strftime("###### %A, [[%B %-d, %Y]], %-I:%M%p")<CR><CR>'';
+          action = ''<C-r>=strftime("%A, [[%B %-d, %Y]], %-I:%M%p")<CR><CR>'';
           desc = "Insert date-time stamp";
         }
         {
           key = "<C-S-d>";
           mode = "n";
-          action = ''o<C-r>=strftime("###### %A, [[%B %-d, %Y]], %-I:%M%p")<CR><Esc>'';
+          action = ''o<C-r>=strftime("%A, [[%B %-d, %Y]], %-I:%M%p")<CR><Esc>'';
           desc = "Insert date-time stamp";
         }
         # o leader key for "obsidian"
