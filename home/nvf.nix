@@ -10,6 +10,7 @@
     lazygit
     cargo
     rustc
+    rustfmt
   ];
 
   ###### BASE NVIM STUFF ######

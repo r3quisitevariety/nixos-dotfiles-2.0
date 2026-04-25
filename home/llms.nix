@@ -44,7 +44,7 @@
   #  ];
 
   environment.systemPackages = with pkgs; [
-    lmstudio
+    #    lmstudio
     #ollama-cuda
     #(pkgs.koboldcpp.override { config.cudaSupport = true; }) # very resource intensive build
     # might just use kobold with source pinned recent versions because it moves too fast.
