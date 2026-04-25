@@ -56,6 +56,7 @@
           ./home/nvf.nix
           ./home/vr.nix
           ./home/obs.nix
+          ./home/cuda.nix
         ];
       };
 
