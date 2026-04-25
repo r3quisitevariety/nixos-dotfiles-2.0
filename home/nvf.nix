@@ -8,9 +8,10 @@
   # nvf specific tooling (not exhaustive)
   environment.systemPackages = with pkgs; [
     lazygit
-    cargo
-    rustc
-    rustfmt
+    #cargo
+    #rustc
+    #rustfmt
+    rustup
   ];
 
   ###### BASE NVIM STUFF ######
