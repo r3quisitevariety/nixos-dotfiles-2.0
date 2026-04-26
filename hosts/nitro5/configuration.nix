@@ -331,16 +331,20 @@
 
   # bashrc
   programs.bash.interactiveShellInit = ''
-    function ya() { # yazi: cd into cwd on quit
-      local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-      yazi "$@" --cwd-file="$tmp"
-      if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-        cd -- "$cwd"
-      fi
-      rm -f -- "$tmp"
-    }
+      function ya() { # yazi: cd into cwd on quit
+        local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+        yazi "$@" --cwd-file="$tmp"
+        if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+          cd -- "$cwd"
+        fi
+        rm -f -- "$tmp"
+      }
 
-    eval "$(pay-respects bash --alias)"  # press F to pay respects (thefuck alternative)
+      eval "$(pay-respects bash --alias)"  # press F to pay respects (thefuck alternative)
+
+    if [[ $SHLVL == 1 ]]; then
+      fortune | ${pkgs.kittysay}/bin/kittysay
+    fi
 
   '';
 
@@ -348,6 +352,7 @@
   environment.variables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
+    QT_QPA_PLATFORMTHEME = "qt6ct";
   };
 
   environment.shellAliases = {
@@ -409,6 +414,8 @@
     yarn
 
     # ── CLI utilities ─────────────────────────────────────────────────────────
+    kittysay
+    fortune
     git
     fzf
     ripgrep
@@ -438,6 +445,7 @@
     gh
 
     # ── Apps ──────────────────────────────────────────────────────────────────
+    moonlight-qt
     mpv
     qdirstat
     ani-cli
