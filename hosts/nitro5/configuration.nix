@@ -343,7 +343,7 @@
       eval "$(pay-respects bash --alias)"  # press F to pay respects (thefuck alternative)
 
     if [[ $SHLVL == 1 ]]; then
-      fortune | ${pkgs.kittysay}/bin/kittysay | lolcat
+      fortune | ${pkgs.kittysay}/bin/kittysay
     fi
 
   '';
