@@ -68,6 +68,7 @@
     8384
     3923
     8000
+    5001 # kobold
   ]; # syncthing, copyparty
   # networking.firewall.allowedUDPPorts = [ ... ];
   # networking.firewall.enable = false;
@@ -342,9 +343,9 @@
 
       eval "$(pay-respects bash --alias)"  # press F to pay respects (thefuck alternative)
 
-    if [[ $SHLVL == 1 ]]; then
-      fortune | ${pkgs.kittysay}/bin/kittysay
-    fi
+    #if [[ $SHLVL == 1 ]]; then
+    #  fortune | ${pkgs.kittysay}/bin/kittysay
+    #fi
 
   '';
 
@@ -554,6 +555,11 @@
   #    };
   #  };
   #
+
+  virtualisation.docker = {
+    enable = true;
+  };
+
   system.stateVersion = "25.11"; # did you read the comment?
 
 }
