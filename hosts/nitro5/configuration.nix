@@ -448,6 +448,9 @@
     gh
 
     # ── Apps ──────────────────────────────────────────────────────────────────
+    lutgen
+    lutgen-studio
+    affine
     moonlight-qt
     mpv
     qdirstat
