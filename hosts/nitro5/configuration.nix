@@ -122,7 +122,7 @@
       pkgs.kdePackages.xdg-desktop-portal-kde
     ];
     config.common = {
-      default = "hyprland;gtk";
+      default = "hyprland;kde";
       "org.freedesktop.impl.portal.FileChooser" = "kde";
       "org.freedesktop.impl.portal.Secret" = "kwallet";
       "org.freedesktop.impl.portal.Settings" = "kde"; # for calendar
@@ -347,6 +347,7 @@
     #  fortune | ${pkgs.kittysay}/bin/kittysay
     #fi
 
+      export PATH="$HOME/.emacs.d/bin:$PATH"
   '';
 
   # ── Environment ─────────────────────────────────────────────────────────────

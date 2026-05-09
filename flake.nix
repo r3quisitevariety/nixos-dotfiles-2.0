@@ -57,6 +57,7 @@
           ./home/vr.nix
           ./home/obs.nix
           ./home/cuda.nix
+          ./home/emacs.nix
         ];
       };
 
