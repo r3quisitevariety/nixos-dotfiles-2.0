@@ -53,7 +53,8 @@
           mangowm.nixosModules.mango
           ./hosts/nitro5/configuration.nix
           ./home/llms.nix
-          ./home/nvf.nix
+          #./home/nvf.nix
+          ./home/neovim.nix
           ./home/vr.nix
           ./home/obs.nix
           ./home/cuda.nix
