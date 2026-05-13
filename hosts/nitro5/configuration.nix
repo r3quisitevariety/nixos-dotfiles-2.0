@@ -449,6 +449,9 @@
     gh
 
     # ── Apps ──────────────────────────────────────────────────────────────────
+    p7zip
+    unityhub
+    alcom
     lutgen
     lutgen-studio
     affine
