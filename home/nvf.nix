@@ -159,23 +159,6 @@
         }
       ];
 
-      vim.maps.normal."<C-w><S-h>" = {
-        action = "20<C-w><";
-        desc = "Resize split left";
-      };
-      vim.maps.normal."<C-w><S-l>" = {
-        action = "20<C-w>>";
-        desc = "Resize split right";
-      };
-      vim.maps.normal."<C-w><S-k>" = {
-        action = "20<C-w>+";
-        desc = "Resize split up";
-      };
-      vim.maps.normal."<C-w><S-j>" = {
-        action = "20<C-w>-";
-        desc = "Resize split down";
-      };
-
       #blink (currently really minimal)
       #vim.autocomplete.blink-cmp.enable = true;
       #vim.autocomplete.blink-cmp.setupOpts.completion.menu.auto_show = true;

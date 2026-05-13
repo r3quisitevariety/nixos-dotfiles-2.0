@@ -9,8 +9,21 @@
     #fzf
     #ripgrep
     #fd
-    rustup
-    #rust-analyzer
+
+    rustup # includes rustfmt for conform
+    rust-analyzer
+
+    lua-language-server
+    stylua
+
+    typescript
+    typescript-language-server
+
+    #nixd
+    nil # Nix LSP
+    nixfmt
+
+    # Add more as needed
   ];
 
 }
