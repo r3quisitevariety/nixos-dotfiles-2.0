@@ -23,6 +23,8 @@
     nil # Nix LSP
     nixfmt
 
+    harper
+
     # Add more as needed
   ];
 
