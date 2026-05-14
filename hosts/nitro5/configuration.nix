@@ -117,7 +117,7 @@
     enable = true;
     extraPortals = [
       pkgs.xdg-desktop-portal-hyprland
-      pkgs.xdg-desktop-portal-gnome
+      #pkgs.xdg-desktop-portal-gnome
       pkgs.xdg-desktop-portal-gtk
       pkgs.kdePackages.xdg-desktop-portal-kde
     ];
@@ -181,6 +181,7 @@
 
   # ── Hardware ────────────────────────────────────────────────────────────────
   hardware.graphics.enable = true;
+  hardware.graphics.enable32Bit = true;
 
   # NVIDIA PRIME offload (Acer Nitro 5, RTX 4060)
   hardware.nvidia = {
