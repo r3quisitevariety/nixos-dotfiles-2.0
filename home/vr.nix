@@ -4,6 +4,7 @@
   environment.systemPackages = with pkgs; [
     xrizer
     opencomposite
+    wayvr
   ];
 
   services.wivrn = {

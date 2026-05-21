@@ -1,7 +1,8 @@
-{ pkgs, config, ... }:
-
 {
-
+  pkgs,
+  config,
+  ...
+}: {
   environment.systemPackages = with pkgs; [
     emacs
     clang
@@ -10,5 +11,4 @@
     #fd
     #git
   ];
-
 }

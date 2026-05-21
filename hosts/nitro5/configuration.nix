@@ -432,6 +432,8 @@
     tldr
     fastfetch
     microfetch
+    macchina
+    hyfetch
     ffmpeg
     yt-dlp
     streamlink
@@ -450,6 +452,8 @@
     gh
 
     # ── Apps ──────────────────────────────────────────────────────────────────
+    nicotine-plus
+    kdePackages.kdenlive
     p7zip
     unityhub
     alcom
@@ -513,7 +517,7 @@
   swapDevices = [
     {
       device = "/swapfile";
-      size = 16192; # 16GB (needed to double for slop)
+      size = 8192;
     }
   ];
 

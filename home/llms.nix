@@ -1,7 +1,8 @@
-{ pkgs, config, ... }:
-
 {
-
+  pkgs,
+  config,
+  ...
+}: {
   # ccache skips already compiled objects
   # TODO - enforce the ccache overlay with kobold
   #  programs.ccache.enable = true;
@@ -70,5 +71,4 @@
   environment.shellAliases = {
     ai = "aichat --session --role concise";
   };
-
 }

@@ -1,9 +1,12 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  ...
+}:
 # swag aura neovim config using NvF + all programs I use w/ it
 # note that file is NixOS managed, not hm!!!
-
 {
-  imports = [ inputs.nvf.nixosModules.default ]; # importing NvF from flake
+  imports = [inputs.nvf.nixosModules.default]; # importing NvF from flake
 
   # nvf specific tooling (not exhaustive)
   environment.systemPackages = with pkgs; [
@@ -65,8 +68,8 @@
             timeout_ms = 500;
           };
           formatters_by_ft = {
-            rust = [ "rustfmt" ];
-            nix = [ "nixfmt" ];
+            rust = ["rustfmt"];
+            nix = ["nixfmt"];
           };
         };
       };
@@ -104,7 +107,7 @@
             enabled = true;
             folder = "zzz/dailynotes";
             date_format = "%B %-d, %Y";
-            default_tags = [ "type/dailynotes" ];
+            default_tags = ["type/dailynotes"];
           };
           legacy_commands = false;
           ui.enable = false;
@@ -167,7 +170,7 @@
         -- disable stoopid fold from obsidian plugin
         vim.opt.fen = false
 
-        -- blink toggle 
+        -- blink toggle
         vim.keymap.set({ "i", "n" }, "<C-q>", function()
           vim.b.completion = not vim.b.completion
           require("blink.cmp").hide()
@@ -188,7 +191,7 @@
           vim.b.completion = not vim.b.completion
           require("blink.cmp")[vim.b.completion and "setup" or "hide"]({})
           vim.notify("Completion " .. (vim.b.completion and "enabled" or "disabled"))
-        end, { desc = "Toggle completion" })      
+        end, { desc = "Toggle completion" })
 
 
         -- trouble code actions
@@ -220,5 +223,4 @@
       };
     };
   };
-
 }
