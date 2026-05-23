@@ -79,6 +79,8 @@ hl.config({
 		layout = "scrolling",
 	},
 
+	scrolling = { direction = "right" },
+
 	decoration = {
 		rounding = 5,
 		active_opacity = 1.0,
@@ -188,11 +190,23 @@ hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "down" }))
 
--- Resize (vim keys)
-hl.bind(mainMod .. " + SHIFT + H", hl.dsp.window.resize({ x = -100, y = 0, relative = true }), { repeating = true })
-hl.bind(mainMod .. " + SHIFT + L", hl.dsp.window.resize({ x = 100, y = 0, relative = true }), { repeating = true })
+--hl.bind(mainMod .. " + SHIFT + H", hl.dsp.window.resize({ x = -100, y = 0, relative = true }), { repeating = true })
+--hl.bind(mainMod .. " + SHIFT + L", hl.dsp.window.resize({ x = 100, y = 0, relative = true }), { repeating = true })
+
+-- Resize
+hl.bind(mainMod .. " + SHIFT + H", hl.dsp.layout("colresize -0.05"), { repeating = true })
+hl.bind(mainMod .. " + SHIFT + L", hl.dsp.layout("colresize +0.05"), { repeating = true })
 hl.bind(mainMod .. " + SHIFT + K", hl.dsp.window.resize({ x = 0, y = -100, relative = true }), { repeating = true })
 hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.resize({ x = 0, y = 100, relative = true }), { repeating = true })
+
+-- Scrolling layout
+hl.bind(mainMod .. " + SPACE", hl.dsp.layout("fit active"))
+hl.bind(mainMod .. " + SHIFT + SPACE", hl.dsp.layout("fit all"))
+hl.bind(mainMod .. " + period", hl.dsp.layout("move +col"))
+hl.bind(mainMod .. " + comma", hl.dsp.layout("move -col"))
+hl.bind(mainMod .. " + SHIFT + mouse_down", hl.dsp.layout("move +col"))
+hl.bind(mainMod .. " + SHIFT + mouse_up", hl.dsp.layout("move -col"))
+
 -- Move windows
 hl.bind(mainMod .. " + CTRL + H", hl.dsp.window.move({ direction = "left" }))
 hl.bind(mainMod .. " + CTRL + J", hl.dsp.window.move({ direction = "down" }))
