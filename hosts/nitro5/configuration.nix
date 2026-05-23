@@ -4,16 +4,13 @@
   inputs,
   ...
 }:
-
 #let
 #  nixpkgs-unstable = import inputs.nixpkgs-unstable {
 #    system = pkgs.stdenv.hostPlatform.system;
 #    config.allowUnfree = true;
 #  };
 #in
-
 {
-
   # ── Compositors ─────────────────────────────────────────────────────────────
   programs.hyprland.enable = true; # > need these for testing and contributions
   programs.niri.enable = false; # >
@@ -24,7 +21,7 @@
   boot.kernel.sysctl."kernel.core_pattern" = "/dev/null";
 
   # ── Imports ─────────────────────────────────────────────────────────────────
-  imports = [ ./hardware-configuration.nix ];
+  imports = [./hardware-configuration.nix];
 
   # ── Nix / Flakes ────────────────────────────────────────────────────────────
   nix.package = pkgs.lixPackageSets.stable.lix;
@@ -53,7 +50,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.timeout = 2;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelParams = [ "acpi_backlight=native" ]; # fix backlight
+  boot.kernelParams = ["acpi_backlight=native"]; # fix backlight
 
   # ── Networking ──────────────────────────────────────────────────────────────
   networking.hostName = "variety";
@@ -174,7 +171,7 @@
   services.keyd = {
     enable = true;
     keyboards.default = {
-      ids = [ "*" ];
+      ids = ["*"];
       settings.main.capslock = "escape";
     };
   };
@@ -262,7 +259,7 @@
   # ── Programs ────────────────────────────────────────────────────────────────
   programs.firefox = {
     enable = true;
-    nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];
+    nativeMessagingHosts.packages = [pkgs.firefoxpwa];
   };
   programs.chromium.enable = true;
   programs.steam = {
@@ -371,7 +368,6 @@
   # ── Packages ────────────────────────────────────────────────────────────────
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-
     # ── Wayland / Compositor ──────────────────────────────────────────────────
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     fuzzel
@@ -393,7 +389,7 @@
     grim
     slurp
     wl-clipboard
-    (tesseract.override { enableLanguages = [ "eng" ]; })
+    (tesseract.override {enableLanguages = ["eng"];})
     imagemagick
     zbar # curl
     translate-shell
@@ -452,6 +448,8 @@
     gh
 
     # ── Apps ──────────────────────────────────────────────────────────────────
+    picard
+    feishin
     nicotine-plus
     kdePackages.kdenlive
     p7zip
@@ -479,7 +477,6 @@
     cinny-desktop
     #unstable.newsraft
     firefoxpwa
-
   ];
 
   # ── Fonts ───────────────────────────────────────────────────────────────────
@@ -573,5 +570,4 @@
   };
 
   system.stateVersion = "25.11"; # did you read the comment?
-
 }
