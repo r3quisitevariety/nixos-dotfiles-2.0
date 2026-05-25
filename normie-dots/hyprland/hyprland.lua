@@ -208,10 +208,14 @@ hl.bind(mainMod .. " + SHIFT + mouse_down", hl.dsp.layout("move +col"))
 hl.bind(mainMod .. " + SHIFT + mouse_up", hl.dsp.layout("move -col"))
 
 -- Move windows
-hl.bind(mainMod .. " + CTRL + H", hl.dsp.window.move({ direction = "left" }))
+--hl.bind(mainMod .. " + CTRL + H", hl.dsp.window.move({ direction = "left" }))
+--hl.bind(mainMod .. " + CTRL + L", hl.dsp.window.move({ direction = "right" }))
+
+hl.bind(mainMod .. " + CTRL + H", hl.dsp.layout("swapcol l"))
+hl.bind(mainMod .. " + CTRL + L", hl.dsp.layout("swapcol r"))
+
 hl.bind(mainMod .. " + CTRL + J", hl.dsp.window.move({ direction = "down" }))
 hl.bind(mainMod .. " + CTRL + K", hl.dsp.window.move({ direction = "up" }))
-hl.bind(mainMod .. " + CTRL + L", hl.dsp.window.move({ direction = "right" }))
 
 -- Workspaces
 for i = 1, 10 do
