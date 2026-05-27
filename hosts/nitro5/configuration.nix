@@ -565,9 +565,9 @@
   #  };
   #
 
-  virtualisation.docker = {
-    enable = true;
-  };
+  #  virtualisation.docker = {
+  #    enable = true;
+  #  };
 
   system.stateVersion = "25.11"; # did you read the comment?
 }
