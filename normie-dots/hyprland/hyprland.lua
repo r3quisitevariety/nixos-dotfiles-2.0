@@ -39,6 +39,7 @@ hl.on("hyprland.start", function()
 	--	)
 	hl.exec_cmd("noctalia-shell")
 	hl.exec_cmd("sillytavern")
+	hl.exec_cmd("sleep 3 && firefox --new-tab about:blank")
 end)
 
 -------------------------------
@@ -79,7 +80,11 @@ hl.config({
 		layout = "scrolling",
 	},
 
-	scrolling = { direction = "right" },
+	scrolling = {
+		direction = "right",
+		fullscreen_on_one_column = true,
+		column_width = 0.5,
+	},
 
 	decoration = {
 		rounding = 5,
@@ -194,8 +199,8 @@ hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "down" }))
 --hl.bind(mainMod .. " + SHIFT + L", hl.dsp.window.resize({ x = 100, y = 0, relative = true }), { repeating = true })
 
 -- Resize
-hl.bind(mainMod .. " + SHIFT + H", hl.dsp.layout("colresize -0.05"), { repeating = true })
-hl.bind(mainMod .. " + SHIFT + L", hl.dsp.layout("colresize +0.05"), { repeating = true })
+hl.bind(mainMod .. " + SHIFT + H", hl.dsp.layout("colresize -0.10"), { repeating = true })
+hl.bind(mainMod .. " + SHIFT + L", hl.dsp.layout("colresize +0.10"), { repeating = true })
 hl.bind(mainMod .. " + SHIFT + K", hl.dsp.window.resize({ x = 0, y = -100, relative = true }), { repeating = true })
 hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.resize({ x = 0, y = 100, relative = true }), { repeating = true })
 
