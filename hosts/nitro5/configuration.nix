@@ -13,7 +13,7 @@
 {
   # ── Compositors ─────────────────────────────────────────────────────────────
   programs.hyprland.enable = true; # > need these for testing and contributions
-  programs.niri.enable = false; # >
+  programs.niri.enable = true; # >
   programs.mango.enable = false; # my actual chosen WM
 
   # disable coredumps so no jet engine laptop when switching wm's
@@ -355,6 +355,7 @@
     QT_QPA_PLATFORMTHEME = "qt6ct";
   };
 
+  # aliases
   environment.shellAliases = {
     neofetch = "fastfetch";
     notes = "cd ~/Documents/obsidian && nvim";
@@ -363,6 +364,7 @@
     edit = "sudo vim /etc/nixos/configuration.nix";
     v = "nvim";
     g = "git";
+    rm = ''echo "this is not the command you are looking for."; false'';
   };
 
   # ── Packages ────────────────────────────────────────────────────────────────
@@ -413,6 +415,8 @@
     yarn
 
     # ── CLI utilities ─────────────────────────────────────────────────────────
+    trash-cli
+
     kittysay
     fortune
     lolcat
