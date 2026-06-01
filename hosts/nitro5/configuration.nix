@@ -67,8 +67,11 @@
     3923
     8000
     5001 # kobold
+    9757 # wivrn
   ]; # syncthing, copyparty
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedUDPPorts = [
+    9757 #wivrn
+  ];
   # networking.firewall.enable = false;
 
   # ── Locale / Time ───────────────────────────────────────────────────────────
