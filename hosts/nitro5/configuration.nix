@@ -12,9 +12,10 @@
 #in
 {
   # ── Compositors ─────────────────────────────────────────────────────────────
-  programs.hyprland.enable = true; # > need these for testing and contributions
-  programs.niri.enable = true; # >
-  programs.mango.enable = false; # my actual chosen WM
+  # all 3 of them babyy
+  programs.hyprland.enable = true;
+  programs.niri.enable = true;
+  programs.mango.enable = true;
 
   # disable coredumps so no jet engine laptop when switching wm's
   systemd.coredump.enable = false;
