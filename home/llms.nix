@@ -45,7 +45,7 @@
     # might just use kobold with source pinned recent versions because it moves too fast.
     # maybe version 1.11 wil fix my cuMemCreate error, we'll see once it passes
     # currently using shell.nix for kobold because of weird cuda related issues.
-    sillytavern # currently installed imperatively, might declare it if I feel like it
+    #sillytavern # currently installed imperatively, might declare it if I feel like it
     aichat
   ];
 
