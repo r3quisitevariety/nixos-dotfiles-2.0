@@ -263,7 +263,7 @@
   # ── Programs ────────────────────────────────────────────────────────────────
   programs.firefox = {
     enable = true;
-    nativeMessagingHosts.packages = [pkgs.firefoxpwa];
+    #nativeMessagingHosts.packages = [pkgs.firefoxpwa];
   };
   programs.chromium.enable = true;
   programs.steam = {
@@ -477,7 +477,7 @@
     nh
     cinny-desktop
     #unstable.newsraft
-    firefoxpwa
+    #firefoxpwa - made builds fail.
   ];
 
   # ── Fonts ───────────────────────────────────────────────────────────────────
