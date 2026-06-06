@@ -402,14 +402,6 @@
     wf-recorder # ffmpeg
     gifski
 
-    # ── Bitwig (XCB deps) ─────────────────────────────────────────────────────
-    libxcb
-    xcbutil
-    xcbutilwm
-    xcbutilkeysyms
-    xcbutilrenderutil
-    xcbutilimage
-
     # ── Build tools ───────────────────────────────────────────────────────────
     gcc
     gnumake
