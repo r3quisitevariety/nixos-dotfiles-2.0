@@ -9,6 +9,6 @@
   home.stateVersion = "25.11"; # just added this lol, idk if its sufficient
 
   imports = [
-    ./home/music.nix
+    ./modules/music.nix
   ];
 }

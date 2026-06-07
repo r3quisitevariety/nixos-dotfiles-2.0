@@ -54,13 +54,13 @@
       modules = [
         mangowm.nixosModules.mango
         ./hosts/nitro5/configuration.nix
-        ./home/llms.nix
-        #./home/nvf.nix
-        ./home/neovim.nix
-        ./home/vr.nix
-        ./home/obs.nix
-        ./home/cuda.nix
-        ./home/emacs.nix
+        ./modules/llms.nix
+        #./modules/nvf.nix
+        ./modules/neovim.nix
+        ./modules/vr.nix
+        ./modules/obs.nix
+        ./modules/cuda.nix
+        ./modules/emacs.nix
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
