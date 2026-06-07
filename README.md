@@ -16,4 +16,5 @@ feel free to pick and choose, get inspired from, or take from this code. i aimed
 - [ ] match rebuild switches to automated git commits for 1:1 parity with remote and local
 - [ ] resolve hard coded hostnames
 - [ ] d-dendritic??
+- [ ] clean up legacy code
 
