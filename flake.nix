@@ -29,6 +29,11 @@
       url = "github:Benexl/yt-x";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   # outputs can be thought of as arguments - how are we molding and sculpting the inputs?
@@ -38,6 +43,7 @@
     nixpkgs,
     mangowm,
     nvf,
+    home-manager,
     ...
   } @ inputs: {
     # will add future host names here.
@@ -55,6 +61,13 @@
         ./home/obs.nix
         ./home/cuda.nix
         ./home/emacs.nix
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = {inherit inputs;};
+          home-manager.users.requisite = import ./home.nix; # replace with your username
+        }
       ];
     };
   };
