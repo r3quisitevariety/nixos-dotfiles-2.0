@@ -1,7 +1,6 @@
--- hyprland.lua
+-- hyprland.luahypr
 -- ~/.config/hypr/hyprland.lua
 -- Requires Hyprland 0.55+
-
 ------------------
 ---- MONITORS ----
 ------------------
@@ -37,9 +36,9 @@ hl.on("hyprland.start", function()
 	--	hl.exec_cmd(
 	--		"bash -c 'cd /home/requisite/code/kobold/program && nix develop . --command koboldcpp --model /home/requisite/code/kobold/models/google_gemma-4-E4B-it-Q6_K.gguf --contextsize 12384 --gpulayers 99 --usecublas 0 0 --flashattention --useswa --smartcontext --blasbatchsize 512 --threads 4 --host 0.0.0.0'"
 	--	)
-	hl.exec_cmd("noctalia-shell")
+	--	hl.exec_cmd("noctalia-shell")
+	hl.exec_cmd("noctalia") -- v5
 	hl.exec_cmd("sillytavern")
-	hl.exec_cmd("sleep 3 && firefox --new-tab about:blank")
 end)
 
 -------------------------------
@@ -180,7 +179,7 @@ local mainMod = "SUPER"
 
 -- Core
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
-hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
+-- hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + C", hl.dsp.window.close())
 hl.bind(mainMod .. " + M", hl.dsp.exit())
@@ -280,8 +279,8 @@ hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tru
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 
 -- Screenshots
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("hyprshot -m region --clipboard-only"))
-hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("hyprshot -m region"))
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("hyprshot -m region --clipboard-only --freeze"))
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("hyprshot -m region --freeze"))
 
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
@@ -308,3 +307,6 @@ hl.window_rule({
 
 -- This loads Noctalia-generated Hyprland colors.
 dofile("/home/requisite/.config/hypr/noctalia/noctalia-colors.lua")
+
+-- For Noctalia Color templates
+require("noctalia")
