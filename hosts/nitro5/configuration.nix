@@ -485,7 +485,7 @@
 
   # ── Services ────────────────────────────────────────────────────────────────
   services.printing.enable = true;
-  services.openssh.enable = true;
+  services.openssh.enable = false; # remove giant attack surface
   services.flatpak.enable = true;
 
   services.syncthing = {
