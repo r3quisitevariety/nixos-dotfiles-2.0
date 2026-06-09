@@ -3,19 +3,11 @@
   pkgs,
   inputs,
   ...
-}:
-#let
-#  nixpkgs-unstable = import inputs.nixpkgs-unstable {
-#    system = pkgs.stdenv.hostPlatform.system;
-#    config.allowUnfree = true;
-#  };
-#in
-{
+}: {
   # ── Compositors ─────────────────────────────────────────────────────────────
   # all 3 of them babyy
   programs.hyprland.enable = true;
   programs.niri.enable = true;
-  #programs.mango.enable = true;
 
   # disable coredumps so no jet engine laptop when switching wm's
   systemd.coredump.enable = false;
@@ -72,7 +64,6 @@
   networking.firewall.allowedUDPPorts = [
     9757 #wivrn
   ];
-  # networking.firewall.enable = false;
 
   # ── Locale / Time ───────────────────────────────────────────────────────────
   #time.timeZone = "America/New_York";
@@ -133,17 +124,9 @@
 
   # KDE Plasma 6
   services.desktopManager.plasma6.enable = true; # gives xdg portal, elisa, dolphin, cursor, ui niceties, etc.
-  #services.displayManager.sddm = { # disabled in favor of tuigreet/greetd - experiencing sddm crashes, probably due to NVIDIA quirks.
-  #  enable         = true;
-  #  wayland.enable = true; # experimental
-  #};
 
   # GNOME
   services.desktopManager.gnome.enable = true; # enabled for fallback + compatibility
-  environment.gnome.excludePackages = with pkgs; [
-    gnome-calendar
-  ];
-  #services.displayManager.gdm.enable = true;
 
   # greetd + tuigreet (active display manager)
   services.greetd = {
@@ -163,7 +146,6 @@
   services.xserver.xkb = {
     layout = "us";
     variant = "";
-    #options = "caps:escape"; # bind caps to escape (using keyd instead)
   };
 
   # rebind caps → escape at the kernel level via keyd
@@ -243,34 +225,16 @@
     ];
     packages = with pkgs; [
       prometheus-nvidia-gpu-exporter
-      #thunderbird
     ];
   };
-
-  # sail the seven seas
-  #users.users.guest = {
-  #  isNormalUser = true;
-  #  extraGroups  = [ "wheel" "video" "audio" "games" ];
-  #  packages     = [ pkgs.steam ];
-  #  password     = "temp123";
-  #};
 
   # ── Programs ────────────────────────────────────────────────────────────────
   programs.firefox = {
     enable = true;
-    #nativeMessagingHosts.packages = [pkgs.firefoxpwa];
   };
   programs.chromium.enable = true;
   programs.steam = {
     enable = true;
-    #    package = pkgs.steam.override {
-    #      extraProfile = ''
-    #        # Allows Monado/WiVRn to be used
-    #        export PRESSURE_VESSEL_IMPORT_OPENXR_1_RUNTIMES=1
-    #        # Fixes timezones on VRChat
-    #        unset TZ
-    #      '';
-    #    };
   };
   programs.nix-ld.enable = true; # FHS compat fixes
   programs.pay-respects.enable = true; # press F to pay respects
@@ -373,7 +337,6 @@
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     fuzzel
     foot
-    ghostty
     wlr-randr
     xwayland-satellite # xwayland for niri
     hyprshot # cliphist              # screenshot; clipboard (niri)
@@ -427,25 +390,21 @@
     hyfetch
     ffmpeg
     yt-dlp
-    streamlink
     rclone
     btop
     htop
     w3m
     python3
-    #inputs.yt-x.packages."${stdenv.hostPlatform.system}".default
 
     # ── Dev / editors ─────────────────────────────────────────────────────────
     vscode
     obsidian
     opencode
     zola
-    gh
 
     # ── Apps ──────────────────────────────────────────────────────────────────
     reaper
     picard
-    feishin
     nicotine-plus
     kdePackages.kdenlive
     p7zip
@@ -467,12 +426,8 @@
     proton-vpn
     proton-vpn-cli
     protonup-qt
-    copyparty
     unar
     nh
-    cinny-desktop
-    #unstable.newsraft
-    #firefoxpwa - made builds fail.
   ];
 
   # ── Fonts ───────────────────────────────────────────────────────────────────
@@ -500,12 +455,6 @@
     #authKeyFile = "/run/secrets/tailscale_key";
   };
 
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable         = true;
-  #   enableSSHSupport = true;
-  # };
-
   # ── Swap ────────────────────────────────────────────────────────────────────
   swapDevices = [
     {
@@ -513,53 +462,6 @@
       size = 8192;
     }
   ];
-
-  # ── Invidious (disabled) ────────────────────────────────────────────────────
-  #services.invidious = {
-  #  enable = true;
-  #  port   = 8090;
-  #  settings = {
-  #    invidious_companion = [{ private_url = "http://localhost:8282/companion"; }];
-  #    invidious_companion_key = "Uxep6ohv7sungie7"; # generate securely
-  #    default_user_preferences = {
-  #      related_videos = false;
-  #      comments       = [];
-  #    };
-  #  };
-  #};
-
-  # docker container for invidious-companion (disabled)
-  #virtualisation.docker.enable = true;
-  #virtualisation.oci-containers = {
-  #  backend = "docker";
-  #  containers.invidious-companion = {
-  #    image   = "quay.io/invidious/invidious-companion:latest";
-  #    ports   = [ "127.0.0.1:8282:8282" ];
-  #    volumes = [ "companioncache:/var/tmp/youtubei.js:rw" ];
-  #    environment.SERVER_SECRET_KEY = "Uxep6ohv7sungie7"; # match above
-  #  };
-  #};
-
-  #  services.radicale = {
-  #    enable = true;
-  #    settings = {
-  #      server = {
-  #        hosts = [
-  #          "0.0.0.0:5232"
-  #          "[::]:5232"
-  #        ];
-  #      };
-  #      auth = {
-  #        type = "htpasswd";
-  #        htpasswd_filename = "~/code/radicale/users/";
-  #        htpasswd_encryption = "bcrypt";
-  #      };
-  #      storage = {
-  #        filesystem_folder = "~/code/radicale/collections";
-  #      };
-  #    };
-  #  };
-  #
 
   #  virtualisation.docker = {
   #    enable = true;

@@ -1,6 +1,4 @@
 {pkgs, ...}: {
-  # cuda binary cache
-  # testing flox, will commit if goes well.
   nix.settings = {
     substituters = [
       #"https://cache.nixos-cuda.org"

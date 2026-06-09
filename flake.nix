@@ -1,13 +1,12 @@
 {
   description = "my :3 flake";
 
-  # think of inputs as "fetching" dependencies; other flakes, git repos, local paths.
-
   inputs = {
-    # mixing both stable and unstable
+    # uncomment both to mix both stable and unstable
     #nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     #nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
 
+    # pure unstable
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 
     noctalia = {
@@ -15,29 +14,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    #nvf = {
-    #  url = "github:NotAShelf/nvf";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
-
-    #yt-x = {
-    #  url = "github:Benexl/yt-x";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  # outputs can be thought of as arguments - how are we molding and sculpting the inputs?
-
   outputs = {
     self,
     nixpkgs,
-    #mangowm,
-    #nvf,
     home-manager,
     ...
   } @ inputs: {
@@ -47,15 +32,12 @@
       system = "x86_64-linux";
       specialArgs = {inherit inputs;}; # fix compiler from bitching about inputs
       modules = [
-        #mangowm.nixosModules.mango
         ./hosts/nitro5/configuration.nix
-        ./modules/llms.nix
-        #./modules/nvf.nix
+        #./modules/llms.nix
         ./modules/neovim.nix
         ./modules/vr.nix
         ./modules/obs.nix
         ./modules/cuda.nix
-        ./modules/emacs.nix
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
@@ -66,6 +48,4 @@
       ];
     };
   };
-
-  # left off at https://nixos-and-flakes.thiscute.world/nixos-with-flakes/nixos-flake-configuration-explained
 }

@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: {
-  # i currently have a normie neovim config in ~/.config/nvim and this module is here to manage the deps, though i do plan to make a nix wrapper soon for my entire neovim config
+  # lsp binaries and toolchains go here, actual configuration lives in neovims native config structure
   environment.systemPackages = with pkgs; [
     neovim
     lazygit
@@ -20,13 +20,10 @@
     typescript
     typescript-language-server
 
-    #nixd
     nil # Nix LSP
     nixfmt
     alejandra
 
     harper
-
-    # Add more as needed
   ];
 }
