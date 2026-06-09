@@ -15,20 +15,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    mangowm = {
-      url = "github:mangowm/mango";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #nvf = {
+    #  url = "github:NotAShelf/nvf";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
 
-    nvf = {
-      url = "github:NotAShelf/nvf";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    yt-x = {
-      url = "github:Benexl/yt-x";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #yt-x = {
+    #  url = "github:Benexl/yt-x";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -41,8 +36,8 @@
   outputs = {
     self,
     nixpkgs,
-    mangowm,
-    nvf,
+    #mangowm,
+    #nvf,
     home-manager,
     ...
   } @ inputs: {
@@ -52,7 +47,7 @@
       system = "x86_64-linux";
       specialArgs = {inherit inputs;}; # fix compiler from bitching about inputs
       modules = [
-        mangowm.nixosModules.mango
+        #mangowm.nixosModules.mango
         ./hosts/nitro5/configuration.nix
         ./modules/llms.nix
         #./modules/nvf.nix

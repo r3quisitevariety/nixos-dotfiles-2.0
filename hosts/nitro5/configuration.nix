@@ -15,7 +15,7 @@
   # all 3 of them babyy
   programs.hyprland.enable = true;
   programs.niri.enable = true;
-  programs.mango.enable = true;
+  #programs.mango.enable = true;
 
   # disable coredumps so no jet engine laptop when switching wm's
   systemd.coredump.enable = false;
@@ -433,7 +433,7 @@
     htop
     w3m
     python3
-    inputs.yt-x.packages."${stdenv.hostPlatform.system}".default
+    #inputs.yt-x.packages."${stdenv.hostPlatform.system}".default
 
     # ── Dev / editors ─────────────────────────────────────────────────────────
     vscode
