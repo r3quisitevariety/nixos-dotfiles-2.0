@@ -5,7 +5,6 @@
   ...
 }: {
   # ── Compositors ─────────────────────────────────────────────────────────────
-  # all 3 of them babyy
   programs.hyprland.enable = true;
   programs.niri.enable = true;
 
@@ -338,11 +337,10 @@
     fuzzel
     foot
     wlr-randr
-    xwayland-satellite # xwayland for niri
-    hyprshot # cliphist              # screenshot; clipboard (niri)
+    xwayland-satellite # for niri
+    hyprshot
     kdePackages.qt6ct
     nwg-look # for gtk theming
-    #nixpkgs-unstable.pywalfox-native # for theming
     pywalfox-native
     jq # youtube music plugin
     udiskie
@@ -370,6 +368,7 @@
 
     # ── CLI utilities ─────────────────────────────────────────────────────────
     trash-cli
+    tokei
 
     kittysay
     fortune
