@@ -25,5 +25,8 @@
     alejandra
 
     harper
+
+    gopls
+    go
   ];
 }
