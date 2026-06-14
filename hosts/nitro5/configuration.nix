@@ -378,6 +378,7 @@
     fzf
     ripgrep
     fd
+    go-grip
     yazi
     tree
     wget
