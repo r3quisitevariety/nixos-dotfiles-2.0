@@ -403,6 +403,7 @@
     zola
 
     # ── Apps ──────────────────────────────────────────────────────────────────
+    telegram-desktop
     reaper
     picard
     nicotine-plus
