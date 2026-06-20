@@ -62,6 +62,7 @@
   ]; # syncthing, copyparty
   networking.firewall.allowedUDPPorts = [
     9757 #wivrn
+    5353 #avahi
   ];
 
   # ── Locale / Time ───────────────────────────────────────────────────────────
