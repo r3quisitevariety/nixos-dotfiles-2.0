@@ -19,6 +19,7 @@
 
     typescript
     typescript-language-server
+    prettier
 
     nil # Nix LSP
     nixfmt
