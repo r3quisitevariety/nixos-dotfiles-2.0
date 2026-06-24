@@ -327,7 +327,7 @@
     edit = "sudo vim /etc/nixos/configuration.nix";
     v = "nvim";
     g = "git";
-    rm = ''echo "this is not the command you are looking for."; false'';
+    #rm = ''echo "this is not the command you are looking for."; false'';
   };
 
   # ── Packages ────────────────────────────────────────────────────────────────
