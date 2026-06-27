@@ -14,6 +14,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    noctalia-greeter = {
+      url = "github:noctalia-dev/noctalia-greeter";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -38,6 +43,7 @@
         ./modules/vr.nix
         ./modules/obs.nix
         ./modules/cuda.nix
+        ./modules/noctalia-greeter.nix
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
