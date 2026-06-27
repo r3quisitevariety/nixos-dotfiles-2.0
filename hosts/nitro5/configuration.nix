@@ -335,22 +335,19 @@
   environment.systemPackages = with pkgs; [
     # ── Wayland / Compositor ──────────────────────────────────────────────────
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+    gpu-screen-recorder
     fuzzel
     foot
     wlr-randr
     xwayland-satellite # for niri
-    hyprshot
     kdePackages.qt6ct
     nwg-look # for gtk theming
     pywalfox-native
     jq # youtube music plugin
     udiskie
     evtest # for bongo cat plugin :3
-    mesa-demos
     nvtopPackages.nvidia # nvidia stuff
     # mangowc image-toolkit plugin deps
-    grim
-    slurp
     wl-clipboard
     (tesseract.override {enableLanguages = ["eng"];})
     imagemagick
