@@ -280,10 +280,10 @@ hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tru
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 
 -- Screenshots
---hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("hyprshot -m region --clipboard-only --freeze"))
---hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("hyprshot -m region --freeze"))
-
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("noctalia msg screenshot-region"))
+
+hl.bind(mainMod .. " + TAB", hl.dsp.exec_cmd("noctalia msg window-switcher"))
+
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
 --------------------------------
