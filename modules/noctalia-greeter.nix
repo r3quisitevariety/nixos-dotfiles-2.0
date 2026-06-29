@@ -3,6 +3,8 @@
   pkgs,
   ...
 }: {
+  # greetd configuration exists in configuration.nix
+
   imports = [
     inputs.noctalia-greeter.nixosModules.default
   ];
@@ -15,8 +17,8 @@
     greeter-args = "";
     settings = {
       cursor = {
-        theme = "Adwaita";
-        size = 24;
+        theme = "Breeze";
+        size = 20;
       };
       keyboard = {
         layout = "us";
