@@ -29,5 +29,7 @@
 
     gopls
     go
+
+    bun
   ];
 }
