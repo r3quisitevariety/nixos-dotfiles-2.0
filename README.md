@@ -3,7 +3,7 @@ yes, i have dotfiles i manually copied from ~/.config into normie-dots/, and no 
 
 behold, my nixos configuration after ~4 months of using nix including flakes + home manager. 
 
-my design choices are idiomatic with the nixos ecosystem, prioritizing general compatibility with existing documentation. i think you should only go as you need when it comes to nix, that's kind of my philosophy for these dotfiles. 
+my design choices are idiomatic with the nixos ecosystem, prioritizing general compatibility with existing documentation (sorry, no dendritic here!). i think you should only go as you need when it comes to nix, that's kind of my philosophy for these dotfiles. 
 
 ### overview 
 - at the top level, we have flake.nix and home.nix for the big picture management of modules, hosts, etc
