@@ -402,6 +402,7 @@
     zola
 
     # ── Apps ──────────────────────────────────────────────────────────────────
+    prismlauncher
     telegram-desktop
     reaper
     picard
