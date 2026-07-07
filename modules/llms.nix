@@ -46,7 +46,7 @@
     # maybe version 1.11 wil fix my cuMemCreate error, we'll see once it passes
     # currently using shell.nix for kobold because of weird cuda related issues.
     #sillytavern # currently installed imperatively, might declare it if I feel like it
-    aichat
+    #aichat
   ];
 
   #ollama suckzzz, kobold better (just using for embed text ig)

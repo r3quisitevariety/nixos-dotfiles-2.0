@@ -323,12 +323,9 @@
   environment.shellAliases = {
     neofetch = "fastfetch";
     notes = "cd ~/Documents/obsidian && nvim";
-    "67" = "sudo nixos-rebuild switch";
     cp = "cp -r";
-    edit = "sudo vim /etc/nixos/configuration.nix";
     v = "nvim";
     g = "git";
-    #rm = ''echo "this is not the command you are looking for."; false'';
   };
 
   # ── Packages ────────────────────────────────────────────────────────────────
@@ -341,20 +338,20 @@
     foot
     wlr-randr
     xwayland-satellite # for niri
-    kdePackages.qt6ct
+
+    kdePackages.qt6ct # for kde theming
     nwg-look # for gtk theming
-    pywalfox-native
-    jq # youtube music plugin
+    pywalfox-native # for firefox theming
+
     udiskie
     evtest # for bongo cat plugin :3
     nvtopPackages.nvidia # nvidia stuff
-    # mangowc image-toolkit plugin deps
     wl-clipboard
     (tesseract.override {enableLanguages = ["eng"];})
     imagemagick
-    zbar # curl
+    zbar # barcode reader
     translate-shell
-    wf-recorder # ffmpeg
+    wf-recorder
     gifski
 
     # ── Build tools ───────────────────────────────────────────────────────────
@@ -366,6 +363,7 @@
     yarn
 
     # ── CLI utilities ─────────────────────────────────────────────────────────
+    jq
     trash-cli
     tokei
 
@@ -406,7 +404,6 @@
     telegram-desktop
     reaper
     picard
-    nicotine-plus
     kdePackages.kdenlive
     p7zip
     unityhub
