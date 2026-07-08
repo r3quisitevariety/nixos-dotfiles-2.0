@@ -416,7 +416,7 @@
     qdirstat
     ani-cli
     vesktop
-    anki-bin
+    anki
     heroic
     google-chrome
     zoom-us
