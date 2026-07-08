@@ -10,7 +10,7 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 
     noctalia = {
-      url = "github:noctalia-dev/noctalia";
+      url = "github:noctalia-dev/noctalia/cachix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -42,7 +42,7 @@
         ./modules/neovim.nix
         ./modules/vr.nix
         ./modules/obs.nix
-        ./modules/cuda.nix
+        ./modules/substituters.nix
         ./modules/noctalia-greeter.nix
         home-manager.nixosModules.home-manager
         {
