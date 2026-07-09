@@ -4,7 +4,7 @@
   ...
 }: {
   # lsp binaries and toolchains go here, actual configuration lives in neovims native config structure
-  environment.systemPackages = with pkgs; [
+  home.packages = with pkgs; [
     neovim
     lazygit
     #fzf
@@ -12,7 +12,7 @@
     #fd
 
     rustup # includes rustfmt for conform
-    rust-analyzer
+    #rust-analyzer
 
     lua-language-server
     stylua
