@@ -25,7 +25,7 @@ hl.monitor({
 ---------------------
 
 local terminal = "foot"
-local fileManager = "dolphin"
+local fileManager = "nautilus"
 local menu = "fuzzel"
 
 -------------------
@@ -33,12 +33,7 @@ local menu = "fuzzel"
 -------------------
 
 hl.on("hyprland.start", function()
-	--	hl.exec_cmd(
-	--		"bash -c 'cd /home/requisite/code/kobold/program && nix develop . --command koboldcpp --model /home/requisite/code/kobold/models/google_gemma-4-E4B-it-Q6_K.gguf --contextsize 12384 --gpulayers 99 --usecublas 0 0 --flashattention --useswa --smartcontext --blasbatchsize 512 --threads 4 --host 0.0.0.0'"
-	--	)
-	--	hl.exec_cmd("noctalia-shell")
 	hl.exec_cmd("noctalia") -- v5
-	hl.exec_cmd("sillytavern")
 end)
 
 -------------------------------
@@ -178,15 +173,15 @@ hl.device({
 local mainMod = "SUPER"
 
 -- Core
-hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
+hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal), { submap_universal = true })
 -- hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
-hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
-hl.bind(mainMod .. " + C", hl.dsp.window.close())
-hl.bind(mainMod .. " + M", hl.dsp.exit())
-hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
-hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu))
-hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen(), { submap_universal = true })
+hl.bind(mainMod .. " + C", hl.dsp.window.close(), { submap_universal = true })
+hl.bind(mainMod .. " + M", hl.dsp.exit(), { submap_universal = true })
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager), { submap_universal = true })
+hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }), { submap_universal = true })
+hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu), { submap_universal = true })
+hl.bind(mainMod .. " + P", hl.dsp.window.pseudo(), { submap_universal = true })
 
 -- Focus (vim keys)
 hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
@@ -199,47 +194,47 @@ hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "down" }))
 --hl.bind(mainMod .. " + SHIFT + L", hl.dsp.window.resize({ x = 100, y = 0, relative = true }), { repeating = true })
 
 -- Resize
-hl.bind(mainMod .. " + SHIFT + H", hl.dsp.layout("colresize -0.10"), { repeating = true })
-hl.bind(mainMod .. " + SHIFT + L", hl.dsp.layout("colresize +0.10"), { repeating = true })
-hl.bind(mainMod .. " + SHIFT + K", hl.dsp.window.resize({ x = 0, y = -100, relative = true }), { repeating = true })
-hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.resize({ x = 0, y = 100, relative = true }), { repeating = true })
+hl.bind(mainMod .. " + SHIFT + H", hl.dsp.layout("colresize -0.10"), { repeating = true, submap_universal = true })
+hl.bind(mainMod .. " + SHIFT + L", hl.dsp.layout("colresize +0.10"), { repeating = true, submap_universal = true })
+hl.bind(mainMod .. " + SHIFT + K", hl.dsp.window.resize({ x = 0, y = -100, relative = true }), { repeating = true, submap_universal = true })
+hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.resize({ x = 0, y = 100, relative = true }), { repeating = true, submap_universal = true })
 
 -- Scrolling layout
-hl.bind(mainMod .. " + SPACE", hl.dsp.layout("fit active"))
-hl.bind(mainMod .. " + SHIFT + SPACE", hl.dsp.layout("fit all"))
-hl.bind(mainMod .. " + period", hl.dsp.layout("move +col"))
-hl.bind(mainMod .. " + comma", hl.dsp.layout("move -col"))
-hl.bind(mainMod .. " + SHIFT + mouse_down", hl.dsp.layout("move +col"))
-hl.bind(mainMod .. " + SHIFT + mouse_up", hl.dsp.layout("move -col"))
+hl.bind(mainMod .. " + SPACE", hl.dsp.layout("fit active"), { submap_universal = true })
+hl.bind(mainMod .. " + SHIFT + SPACE", hl.dsp.layout("fit all"), { submap_universal = true })
+hl.bind(mainMod .. " + period", hl.dsp.layout("move +col"), { submap_universal = true })
+hl.bind(mainMod .. " + comma", hl.dsp.layout("move -col"), { submap_universal = true })
+hl.bind(mainMod .. " + SHIFT + mouse_down", hl.dsp.layout("move +col"), { submap_universal = true })
+hl.bind(mainMod .. " + SHIFT + mouse_up", hl.dsp.layout("move -col"), { submap_universal = true })
 
 -- Move windows
 --hl.bind(mainMod .. " + CTRL + H", hl.dsp.window.move({ direction = "left" }))
 --hl.bind(mainMod .. " + CTRL + L", hl.dsp.window.move({ direction = "right" }))
 
-hl.bind(mainMod .. " + CTRL + H", hl.dsp.layout("swapcol l"))
-hl.bind(mainMod .. " + CTRL + L", hl.dsp.layout("swapcol r"))
+hl.bind(mainMod .. " + CTRL + H", hl.dsp.layout("swapcol l"), { submap_universal = true })
+hl.bind(mainMod .. " + CTRL + L", hl.dsp.layout("swapcol r"), { submap_universal = true })
 
-hl.bind(mainMod .. " + CTRL + J", hl.dsp.window.move({ direction = "down" }))
-hl.bind(mainMod .. " + CTRL + K", hl.dsp.window.move({ direction = "up" }))
+hl.bind(mainMod .. " + CTRL + J", hl.dsp.window.move({ direction = "down" }), { submap_universal = true })
+hl.bind(mainMod .. " + CTRL + K", hl.dsp.window.move({ direction = "up" }), { submap_universal = true })
 
 -- Workspaces
 for i = 1, 10 do
 	local key = i % 10 -- 10 maps to key 0
-	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }), { submap_universal = true })
+	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }), { submap_universal = true })
 end
 
 -- Special workspace
-hl.bind(mainMod .. " + W", hl.dsp.workspace.toggle_special("workspace"))
-hl.bind(mainMod .. " + SHIFT + W", hl.dsp.window.move({ workspace = "special:workspace" }))
+hl.bind(mainMod .. " + W", hl.dsp.workspace.toggle_special("workspace"), { submap_universal = true })
+hl.bind(mainMod .. " + SHIFT + W", hl.dsp.window.move({ workspace = "special:workspace" }), { submap_universal = true })
 
 -- Scroll through workspaces
-hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }), { submap_universal = true })
+hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }), { submap_universal = true })
 
 -- Move/resize windows with mouse
-hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
-hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true, submap_universal = true })
+hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true, submap_universal = true })
 
 -- Disable middle click paste
 hl.bind("mouse:274", hl.dsp.exec_cmd("wl-copy -pc"), { non_consuming = true })
@@ -308,7 +303,45 @@ hl.window_rule({
 })
 
 -- This loads Noctalia-generated Hyprland colors.
-dofile("/home/requisite/.config/hypr/noctalia/noctalia-colors.lua")
+--dofile("/home/requisite/.config/hypr/noctalia/noctalia-colors.lua")
 
 -- For Noctalia Color templates
-require("noctalia")
+require("noctalia").apply_theme()
+
+-- overview plugin:
+hl.config({
+	plugin = {
+		scrolloverview = {
+			gesture_distance = 300, -- how far is the "max" for the gesture
+			scale = 0.5, -- preferred overview scale
+			workspace_gap = 100,
+			layout = "vertical", -- vertical or horizontal
+			wallpaper = 0, -- 0: global only, 1: per-workspace only, 2: both
+			blur = false, -- blur only the main overview wallpaper
+
+			shadow = {
+				enabled = false,
+				range = 50,
+				render_power = 3,
+				color = 0xee1a1a1a,
+			},
+		},
+	},
+})
+
+-- hyprland.lua
+hl.bind("SUPER + g", function()
+	hl.plugin.scrolloverview.overview("toggle")
+end, { submap_universal = true })
+
+hl.define_submap("scrolloverview", function()
+	hl.bind("SUPER + h", hl.plugin.scrolloverview.navigate("left"))
+	hl.bind("SUPER + j", hl.plugin.scrolloverview.navigate("down"))
+	hl.bind("SUPER + k", hl.plugin.scrolloverview.navigate("up"))
+	hl.bind("SUPER + l", hl.plugin.scrolloverview.navigate("right"))
+	hl.bind("return", function()
+		hl.plugin.scrolloverview.window("select")
+		hl.plugin.scrolloverview.overview("off")
+	end)
+	hl.bind("escape", hl.plugin.scrolloverview.overview("off"))
+end)
