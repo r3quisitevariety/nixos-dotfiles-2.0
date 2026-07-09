@@ -1,3 +1,5 @@
+update: i switched to cachyos and im currently in the process of migration; expect major rewrites to the config. this will be a great learning opportunity for me to deepen my nix knowledge.
+
 
 yes, i have dotfiles i manually copied from ~/.config into normie-dots/, and no i will not change it!
 
