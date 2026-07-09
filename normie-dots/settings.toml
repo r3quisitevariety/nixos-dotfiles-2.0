@@ -1,0 +1,285 @@
+[bar.default]
+center = [ "workspaces" ]
+end = [ "group:g3", "clipboard", "group:g4", "group:g5" ]
+margin_edge = 0
+margin_ends = 0
+radius = 0
+radius_bottom_left = -30
+radius_bottom_right = -30
+start = [ "wallpaper", "clock", "group:g2", "sysmon", "weather" ]
+
+    [[bar.default.capsule_group]]
+    fill = "surface_variant"
+    id = "g1"
+    members = [ "launcher", "clock" ]
+    opacity = 1.0
+    padding = 6.0
+
+    [[bar.default.capsule_group]]
+    border = ""
+    fill = "surface_variant"
+    foreground = "primary"
+    id = "g2"
+    members = [ "cpu", "ram", "temp" ]
+    opacity = 1.0
+    padding = 10.0
+
+    [[bar.default.capsule_group]]
+    fill = "surface_variant"
+    id = "g3"
+    members = [ "audio_visualizer", "media" ]
+    opacity = 1.0
+    padding = 6.0
+
+    [[bar.default.capsule_group]]
+    fill = "surface_variant"
+    id = "g4"
+    members = [ "tray" ]
+    opacity = 1.0
+    padding = 6.0
+
+    [[bar.default.capsule_group]]
+    fill = "surface_variant"
+    foreground = "tertiary"
+    id = "g5"
+    members = [ "notifications", "network", "bluetooth", "volume", "brightness", "battery", "session" ]
+    opacity = 1.0
+    padding = 10.0
+
+[[control_center.shortcuts]]
+type = "wifi"
+
+[[control_center.shortcuts]]
+type = "nightlight"
+
+[[control_center.shortcuts]]
+type = "notification"
+
+[[control_center.shortcuts]]
+type = "power_profile"
+
+[[control_center.shortcuts]]
+type = "dark_mode"
+
+[[control_center.shortcuts]]
+type = "media"
+
+[desktop_widgets]
+schema_version = 1
+widget_order = [ "desktop-widget-0000000000000006", "desktop-widget-0000000000000007", "desktop-widget-0000000000000008" ]
+
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = false
+
+    [desktop_widgets.widget.desktop-widget-0000000000000006]
+    box_height = 272.1436767578125
+    box_width = 386.0
+    cx = 932.453125
+    cy = 491.30078125
+    enabled = false
+    output = "eDP-1"
+    rotation = 0.0
+    type = "sticker"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000006.settings]
+        background = true
+        background_opacity = 0.45000000000000001
+        background_padding = 5.0
+        background_radius = 0.0
+        image_path = "/home/requisite/Pictures/misc/Frieren_new_funny_thumbnail.webp"
+        opacity = 1.0
+
+    [desktop_widgets.widget.desktop-widget-0000000000000007]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 1329.79296875
+    cy = 953.91925048828125
+    enabled = false
+    output = "eDP-1"
+    rotation = 0.0
+    type = "sticker"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000007.settings]
+        image_path = "/home/requisite/Pictures/misc/silly_preview.jpeg"
+        opacity = 1.0
+
+    [desktop_widgets.widget.desktop-widget-0000000000000008]
+    box_height = 141.203125
+    box_width = 378.3828125
+    cx = 614.6171875
+    cy = 312.609375
+    enabled = false
+    output = "eDP-1"
+    rotation = 0.0
+    type = "label"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000008.settings]
+        background = false
+        description = "Actiate Noctlaia"
+        title = "Activate Noctalia"
+
+[location]
+auto_locate = true
+
+[lockscreen_widgets]
+enabled = true
+schema_version = 1
+widget_order = [ "lockscreen-login-box@HDMI-A-1", "lockscreen-login-box@eDP-1", "lockscreen-widget-0000000000000001" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = false
+
+    [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1"]
+    box_height = 70.0
+    box_width = 400.0
+    cx = 960.0
+    cy = 957.0
+    output = "HDMI-A-1"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        input_opacity = 1.0
+        input_radius = 6.0
+        show_login_button = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 70.0
+    box_width = 400.0
+    cx = 960.0
+    cy = 879.984375
+    output = "eDP-1"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        show_login_button = true
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
+    box_height = 186.8125
+    box_width = 437.6923828125
+    cx = 960.0
+    cy = 211.75
+    output = "eDP-1"
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
+        background = false
+        clock_style = "digital"
+        color = "secondary"
+        format = " {:%-I:%M %p}"
+        shadow = false
+
+[nightlight]
+enabled = true
+temperature_day = 10000
+
+[notification]
+blacklist = [ "tauon", "hyprshot" ]
+
+[plugin_settings."noctalia/screen_recorder"]
+copy_to_clipboard = true
+directory = "~/Videos"
+video_source = "focused"
+
+[plugins]
+enabled = []
+
+[shell]
+app_icon_color = "on_surface"
+avatar_path = "/home/requisite/Pictures/misc/b2e253dd2eb170b841469e4053bd15f1.jpg"
+clipboard_confirm_clear_history = false
+settings_show_advanced = true
+show_location = false
+
+    [shell.screenshot]
+    save_to_file = false
+
+[theme]
+builtin = "Ayu"
+community_palette = "Rosey AMOLED"
+custom_palette = "m3-content"
+mode = "dark"
+source = "wallpaper"
+wallpaper_scheme = "m3-tonal-spot"
+
+    [theme.templates]
+    builtin_ids = [ "btop", "foot", "gtk3", "gtk4", "ghostty", "hyprland", "kcolorscheme", "mango", "niri", "qt" ]
+    community_ids = [ "pywalfox", "neovim", "vscode", "fuzzel", "discord", "steam", "telegram", "yazi", "zathura", "hyprtoolkit" ]
+
+[wallpaper]
+directory = "/home/makoro/Pictures/wallpapers/local"
+edge_smoothness = 0.0
+transition = [ "disc" ]
+transition_on_startup = true
+
+    [wallpaper.default]
+    path = "/home/makoro/Pictures/wallpapers/local/wallhaven-6l5wpl.png"
+
+    [wallpaper.last]
+    path = "/home/makoro/Pictures/wallpapers/local/wallhaven-6l5wpl.png"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/makoro/Pictures/wallpapers/local/wallhaven-6l5wpl.png"
+
+[weather]
+address = "Toronto, Canada"
+
+[widget.active_window]
+capsule = true
+
+[widget.battery]
+display_mode = "graphic"
+
+[widget.bluetooth]
+show_label = true
+
+[widget.bongocat]
+script = "scripts/bongocat.lua"
+type = "scripted"
+
+[widget.clipboard]
+capsule = true
+capsule_fill = "on_secondary"
+color = "primary"
+
+[widget.clock]
+capsule = true
+capsule_fill = "surface_variant"
+capsule_foreground = "secondary"
+format = "{:%A, %B %e, %Y, %I:%M %p}"
+
+[widget.recorder]
+type = "noctalia/screen_recorder:recorder"
+
+[widget.spacer_2]
+type = "spacer"
+
+[widget.spacer_3]
+type = "spacer"
+
+[widget.sysmon]
+capsule = true
+stat = "gpu_vram"
+
+[widget.taskbar]
+anchor = true
+group_by_workspace = true
+
+[widget.tray]
+capsule = true
+
+[widget.weather]
+capsule = true
+
+[widget.workspaces]
+anchor = true
+capsule_fill = "on_primary"
