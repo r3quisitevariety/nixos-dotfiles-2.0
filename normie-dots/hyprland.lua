@@ -196,8 +196,16 @@ hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "down" }))
 -- Resize
 hl.bind(mainMod .. " + SHIFT + H", hl.dsp.layout("colresize -0.10"), { repeating = true, submap_universal = true })
 hl.bind(mainMod .. " + SHIFT + L", hl.dsp.layout("colresize +0.10"), { repeating = true, submap_universal = true })
-hl.bind(mainMod .. " + SHIFT + K", hl.dsp.window.resize({ x = 0, y = -100, relative = true }), { repeating = true, submap_universal = true })
-hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.resize({ x = 0, y = 100, relative = true }), { repeating = true, submap_universal = true })
+hl.bind(
+	mainMod .. " + SHIFT + K",
+	hl.dsp.window.resize({ x = 0, y = -100, relative = true }),
+	{ repeating = true, submap_universal = true }
+)
+hl.bind(
+	mainMod .. " + SHIFT + J",
+	hl.dsp.window.resize({ x = 0, y = 100, relative = true }),
+	{ repeating = true, submap_universal = true }
+)
 
 -- Scrolling layout
 hl.bind(mainMod .. " + SPACE", hl.dsp.layout("fit active"), { submap_universal = true })
@@ -309,39 +317,54 @@ hl.window_rule({
 require("noctalia").apply_theme()
 
 -- overview plugin:
-hl.config({
-	plugin = {
-		scrolloverview = {
-			gesture_distance = 300, -- how far is the "max" for the gesture
-			scale = 0.5, -- preferred overview scale
-			workspace_gap = 100,
-			layout = "vertical", -- vertical or horizontal
-			wallpaper = 0, -- 0: global only, 1: per-workspace only, 2: both
-			blur = false, -- blur only the main overview wallpaper
+--hl.config({
+--	plugin = {
+--		scrolloverview = {
+--			gesture_distance = 300, -- how far is the "max" for the gesture
+--			scale = 0.5, -- preferred overview scale
+--			workspace_gap = 100,
+--			layout = "vertical", -- vertical or horizontal
+--			wallpaper = 0, -- 0: global only, 1: per-workspace only, 2: both
+--			blur = false, -- blur only the main overview wallpaper
+--
+--			shadow = {
+--				enabled = false,
+--				range = 50,
+--				render_power = 3,
+--				color = 0xee1a1a1a,
+--			},
+--		},
+--	},
+--})
+--
+---- hyprland.lua
+--hl.bind("SUPER + g", function()
+--	hl.plugin.scrolloverview.overview("toggle")
+--end, { submap_universal = true })
+--
+--hl.define_submap("scrolloverview", function()
+--	hl.bind("SUPER + h", hl.plugin.scrolloverview.navigate("left"))
+--	hl.bind("SUPER + j", hl.plugin.scrolloverview.navigate("down"))
+--	hl.bind("SUPER + k", hl.plugin.scrolloverview.navigate("up"))
+--	hl.bind("SUPER + l", hl.plugin.scrolloverview.navigate("right"))
+--	hl.bind("return", function()
+--		hl.plugin.scrolloverview.window("select")
+--		hl.plugin.scrolloverview.overview("off")
+--	end)
+--	hl.bind("escape", hl.plugin.scrolloverview.overview("off"))
+--end)
 
-			shadow = {
-				enabled = false,
-				range = 50,
-				render_power = 3,
-				color = 0xee1a1a1a,
-			},
-		},
-	},
-})
+hl.bind("ALT + TAB", function()
+	hl.dispatch(hl.dsp.exec_cmd("noctalia msg window-switcher"))
+	hl.dispatch(hl.dsp.submap("window_switcher"))
+end)
 
--- hyprland.lua
-hl.bind("SUPER + g", function()
-	hl.plugin.scrolloverview.overview("toggle")
-end, { submap_universal = true })
+hl.define_submap("window_switcher", function()
+	hl.bind("RETURN", hl.dsp.submap("reset")) -- Necessary for the submap to register
 
-hl.define_submap("scrolloverview", function()
-	hl.bind("SUPER + h", hl.plugin.scrolloverview.navigate("left"))
-	hl.bind("SUPER + j", hl.plugin.scrolloverview.navigate("down"))
-	hl.bind("SUPER + k", hl.plugin.scrolloverview.navigate("up"))
-	hl.bind("SUPER + l", hl.plugin.scrolloverview.navigate("right"))
-	hl.bind("return", function()
-		hl.plugin.scrolloverview.window("select")
-		hl.plugin.scrolloverview.overview("off")
+	hl.on("layer.closed", function(layer)
+		if layer.namespace == "noctalia-window-switcher" then
+			hl.dispatch(hl.dsp.submap("reset"))
+		end
 	end)
-	hl.bind("escape", hl.plugin.scrolloverview.overview("off"))
 end)
