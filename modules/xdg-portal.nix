@@ -8,6 +8,8 @@
     #xdg-desktop-portal-hyprland
     #xdg-desktop-portal-kde
     #xdg-desktop-portal-gtk
+    #nwg-look adw-gtk-theme
+    #qt6ct-kde
   ];
 
   # hyprland;gtk is NEEDED otherwise obs or other apps for streaming like discord won't work
