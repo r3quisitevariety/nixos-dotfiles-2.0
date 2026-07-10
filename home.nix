@@ -7,21 +7,9 @@
   # lix/nix
   # hyprscroll
 
-  #  programs.firefox = {
-  #    enable = true;
-  #    profiles.myprofile.extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
-  #      ublock-origin
-  #      bitwarden
-  #      darkreader
-  #      vimium
-  #    ];
-  #  };
-
   services.syncthing = {
     enable = true;
-    # rest is done imperatively
   };
-  #services.tailscale.enable = true; — this is done imperatively
 
   nixpkgs.config.allowUnfree = true;
 
@@ -30,15 +18,30 @@
   home.stateVersion = "25.11";
 
   home.packages = with pkgs; [
+    opencode
     nh
     microfetch
+    unar
+    fzf
+    btop
+    vim
+    ripgrep
+    fd
+    tree
+    tldr
+    curl
+    wget
+    yt-dlp
+    home-manager
     #mpv
-    #obsidian - seems like anything that needs to be in your path should just be installed manually.
+    #obsidian
     #pywalfox-native
-    #obs studio
-    #steam - installed imperatively
-    # wivrn, xrizer — installed imperatively
-    # discord — installed imperatively
+    #obs-studio
+    #steam
+    #wivrn
+    #xrizer
+    #discord
+    #tailscale
   ];
 
   # we will want tree-import or whatever the fuck stella uses - implement; TODO
@@ -47,5 +50,6 @@
     ./modules/music.nix
     ./modules/neovim.nix
     ./modules/xdg-portal.nix
+    ./modules/bash.nix
   ];
 }
