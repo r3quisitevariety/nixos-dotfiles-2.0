@@ -33,7 +33,7 @@
   } @ inputs: {
     # will add future host names here.
 
-    homeConfigurations.makoro = home-manager.lib.homeManagerConfiguration {
+    homeConfigurations.bean = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
       extraSpecialArgs = {inherit inputs;};
       modules = [
@@ -57,7 +57,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.extraSpecialArgs = {inherit inputs;};
-          home-manager.users.makoro = import ./home.nix;
+          home-manager.users.bean = import ./home.nix;
         }
       ];
     };

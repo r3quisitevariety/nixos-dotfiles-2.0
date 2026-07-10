@@ -3,6 +3,10 @@
   pkgs,
   ...
 }: {
+  # paru
+  # lix/nix
+  # hyprscroll
+
   #  programs.firefox = {
   #    enable = true;
   #    profiles.myprofile.extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
@@ -21,14 +25,15 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  home.username = "makoro";
-  home.homeDirectory = "/home/makoro";
+  home.username = "bean";
+  home.homeDirectory = "/home/bean";
   home.stateVersion = "25.11";
 
   home.packages = with pkgs; [
     nh
     microfetch
-    obsidian
+    #mpv
+    #obsidian - seems like anything that needs to be in your path should just be installed manually.
     #pywalfox-native
     #obs studio
     #steam - installed imperatively
@@ -36,7 +41,9 @@
     # discord — installed imperatively
   ];
 
+  # we will want tree-import or whatever the fuck stella uses - implement; TODO
   imports = [
+    ./modules/tmux.nix
     ./modules/music.nix
     ./modules/neovim.nix
     ./modules/xdg-portal.nix

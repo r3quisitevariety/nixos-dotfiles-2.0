@@ -3,7 +3,7 @@
 
   services.mpd = {
     enable = true;
-    musicDirectory = "/home/makoro/Music/h2";
+    musicDirectory = "/home/bean/Music/h2";
 
     extraConfig = ''
       audio_output {
