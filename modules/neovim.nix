@@ -11,8 +11,7 @@
     #ripgrep
     #fd
 
-    rustup # includes rustfmt for conform
-    #rust-analyzer
+    rustup
 
     lua-language-server
     stylua
@@ -21,7 +20,7 @@
     typescript-language-server
     prettier
 
-    nil # Nix LSP
+    nil
     nixfmt
     alejandra
 
