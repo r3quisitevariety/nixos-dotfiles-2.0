@@ -6,7 +6,7 @@
       neofetch = "fastfetch";
       v = "nvim";
       g = "git";
-      ls = "ls --color=auto";
+      ls = "eza --color=auto";
       grep = "grep --color=auto";
     };
     bashrcExtra = "

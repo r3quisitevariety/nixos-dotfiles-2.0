@@ -27,6 +27,8 @@
     vim
     ripgrep
     fd
+    bat
+    eza
     tree
     tldr
     curl
