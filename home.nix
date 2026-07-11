@@ -18,6 +18,7 @@
   home.stateVersion = "25.11";
 
   home.packages = with pkgs; [
+    proton-vpn
     opencode
     nh
     microfetch
