@@ -7,6 +7,7 @@
 
   # lsp binaries and toolchains go here, actual configuration lives in neovims native config structure
   home.packages = with pkgs; [
+    go-grip # for previewing README's before push
     neovim
     lazygit
     #fzf
