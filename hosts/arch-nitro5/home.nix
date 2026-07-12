@@ -3,10 +3,6 @@
   pkgs,
   ...
 }: {
-  # paru
-  # lix/nix
-  # hyprscroll
-
   services.syncthing = {
     enable = true;
   };
@@ -44,15 +40,17 @@
     #xrizer
     #discord
     #tailscale
+    #paru
+    #lix/nix
+    #hyprscroll
   ];
 
-  # we will want tree-import or whatever the fuck stella uses - implement; TODO
   imports = [
-    ./modules/vim.nix
-    ./modules/tmux.nix
-    ./modules/music.nix
-    ./modules/neovim.nix
-    ./modules/xdg-portal.nix
-    ./modules/bash.nix
+    ../../modules/vim.nix
+    ../../modules/tmux.nix
+    ../../modules/music.nix
+    ../../modules/neovim.nix
+    ../../modules/xdg-portal.nix
+    ../../modules/bash.nix
   ];
 }

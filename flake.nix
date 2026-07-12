@@ -1,5 +1,5 @@
 {
-  description = "my :3 flake";
+  description = "twinky femboy flake";
 
   inputs = {
     # uncomment both to mix both stable and unstable
@@ -31,33 +31,29 @@
     home-manager,
     ...
   } @ inputs: {
-    # will add future host names here.
+    # will add future hosts here.
 
+    # cachyos/arch config
     homeConfigurations.bean = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
       extraSpecialArgs = {inherit inputs;};
       modules = [
-        ./home.nix
+        ./hosts/arch-nitro5/home.nix
       ];
     };
 
+    # nixos + nvidia config
     nixosConfigurations.variety = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = {inherit inputs;}; # fix compiler from bitching about inputs
+      specialArgs = {inherit inputs;};
       modules = [
-        ./hosts/nitro5/configuration.nix
-        #./modules/llms.nix
-        #.modules/neovim.nix - declared as a home manager module; how do we resolve this in future? I guess just make most things home manager; also import tree?
-        ./modules/vr.nix
-        ./modules/obs.nix
-        ./modules/substituters.nix
-        ./modules/noctalia-greeter.nix
+        ./hosts/nixos-nitro5
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.extraSpecialArgs = {inherit inputs;};
-          home-manager.users.bean = import ./home.nix;
+          home-manager.users.requisite = import ./hosts/nixos-nitro5/home.nix;
         }
       ];
     };
