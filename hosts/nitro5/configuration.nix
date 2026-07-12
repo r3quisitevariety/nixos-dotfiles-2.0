@@ -240,27 +240,6 @@
   programs.nix-ld.enable = true; # FHS compat fixes
   programs.pay-respects.enable = true; # press F to pay respects
 
-  programs.vim = {
-    enable = true;
-    defaultEditor = false;
-    package = pkgs.vim-full.customize {
-      name = "vim";
-      vimrcConfig.customRC = ''
-        set clipboard=unnamedplus
-        set number
-        set relativenumber
-        set tabstop=2
-        set shiftwidth=2
-        set expandtab
-        set wrap
-        set linebreak
-        set smartindent
-        syntax on
-        nnoremap <leader>w :set wrap!<CR>
-      '';
-    };
-  };
-
   programs.nano.enable = false;
 
   # bashrc
