@@ -1,20 +1,20 @@
-update: i switched to cachyos and im currently in the process of migration; expect major rewrites to the config. this will be a great learning opportunity for me to deepen my nix knowledge.
+**update:** i switched to cachyos/arch and im currently in the process of migration; expect major rewrites to the config. this will be a great learning opportunity for me to deepen my nix knowledge.
 
+---
 
-yes, i have dotfiles i manually copied from ~/.config into normie-dots/, and no i will not change it!
+my design choices are idiomatic with the (current) nixos ecosystem, prioritizing general compatibility with existing documentation (sorry, no dendritic here!). this has resulted in me adopting flakes + home manager and keeping a pretty sane file structure. 
 
-behold, my nixos configuration after ~4 months of using nix including flakes + home manager. 
+I am well aware that there are others who would see this design choice as bloat, however it isn't really important to me as my stylistic choice prioritizes ergonomics and ease of use. I am still *for* learning the nix module system as there are some things that are just truly ineffective with home-manager. despite that though, I think home-manager is a valuable tool, albeit somewhat headstrong and brute.
 
-my design choices are idiomatic with the nixos ecosystem, prioritizing general compatibility with existing documentation (sorry, no dendritic here!). i think you should only go as you need when it comes to nix, that's kind of my philosophy for these dotfiles. 
+I pretty much started off with flakes and so they are familiar to me. I might try out alternatives in the future, but I currently have no issues with them; I am aware that they are in a kind of weird spot development-wise though.
+
+I have dotfiles I manually copied from ~/.config into normie-dots/; ill symlink them once I understand the nix module system; some things I prefer to manage via native config syntax (hyprland, neovim) rather than using nix, as it is more ergonomic and compatible with existing documentation.
 
 ### overview 
-- at the top level, we have flake.nix and home.nix for the big picture management of modules, hosts, etc
-- hosts/ directory contains different hosts, currently only a single laptop
-- modules contain imports that get passed into either NixOS or home manager, variable based on module type and its purpose
+- at the top level, we have the flake.nix which takes in all inputs and passes them to the necessary outputs (standard).
+- hosts/ contains all of my separate hosts. 
+- modules/ contains modules that are both nixos specific and/or home-manager specific; the goal is for these to be host/platform agnostic, allowing me to swap and exchange them in my hosts at will.
 
 ### roadmap
-- [ ] truly modularize everything, making flake.nix, home.nix, and configuration.nix a true thin layer onto your actual modules
-- [ ] match rebuild switches to automated git commits for 1:1 parity with remote and local
 - [ ] resolve hard coded hostnames
-- [ ] d-dendritic??
 
