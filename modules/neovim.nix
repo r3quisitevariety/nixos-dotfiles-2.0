@@ -3,6 +3,8 @@
   pkgs,
   ...
 }: {
+  #TODO - wrap neovim fully in nix, including config
+
   # lsp binaries and toolchains go here, actual configuration lives in neovims native config structure
   home.packages = with pkgs; [
     neovim

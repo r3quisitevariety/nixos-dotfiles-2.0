@@ -9,6 +9,7 @@
       ls = "eza --color=auto";
       grep = "grep --color=auto";
       yay = "paru";
+      notes = "cd ~/Documents/obsidian && nvim";
     };
     bashrcExtra = "
       PS1='\\[\\e[1;32m\\]\\u@\\h\\[\\e[0m\\]:\\[\\e[1;34m\\]\\w\\[\\e[0m\\]\\$ '

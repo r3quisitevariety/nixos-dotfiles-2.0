@@ -3,6 +3,7 @@
     XDG_CURRENT_DESKTOP = "Hyprland";
   };
 
+  # TODO wrap imperative stuff in nix modules and scripts
   home.packages = with pkgs; [
     # installed imperatively (nix install breaks portals)
     #xdg-desktop-portal-hyprland
@@ -13,7 +14,6 @@
   ];
 
   # hyprland;gtk is NEEDED otherwise obs or other apps for streaming like discord won't work
-  # gtk is superior anyways; im starting to loathe kde
   xdg.configFile."xdg-desktop-portal/portals.conf".text = ''
     [preferred]
     default=hyprland;gtk

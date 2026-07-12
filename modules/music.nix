@@ -3,7 +3,7 @@
 
   services.mpd = {
     enable = true;
-    musicDirectory = "/home/bean/Music/h2";
+    musicDirectory = "/home/bean/Music/h2"; # remove hardcoding for platform agnosticism
 
     extraConfig = ''
       audio_output {

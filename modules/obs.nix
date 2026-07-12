@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  #TODO this going in nixos-nitro5
   programs.obs-studio = {
     enable = true;
 
