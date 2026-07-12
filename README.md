@@ -2,6 +2,8 @@
 
 ---
 
+### explanation/justification for design choices
+
 my design choices are idiomatic with the (current) nixos ecosystem, prioritizing general compatibility with existing documentation (sorry, no dendritic here!). this has resulted in me adopting flakes + home manager and keeping a pretty sane file structure. 
 
 I am well aware that there are others who would see this design choice as bloat, however it isn't really important to me as my stylistic choice prioritizes ergonomics and ease of use. I am still *for* learning the nix module system as there are some things that are just truly ineffective with home-manager. despite that though, I think home-manager is a valuable tool, albeit somewhat headstrong and brute.
