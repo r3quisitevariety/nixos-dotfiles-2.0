@@ -13,7 +13,8 @@
 
   home.packages = with pkgs; [
     # TODO lots of packages here are worth turning into modules instead.
-    proton-vpn-cli
+
+    #proton-vpn-cli <-- conflicts with weird imperative installation - using nix-shell -p instead
     opencode
     nh
     microfetch
