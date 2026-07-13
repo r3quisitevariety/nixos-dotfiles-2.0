@@ -32,4 +32,5 @@ I have dotfiles I manually copied from ~/.config into normie-dots/; ill symlink 
 - [ ] manage noctalia userspace declaratively (fuzzel, foot, etc)
 - [ ] port the mess in hosts/nixos-nitro5/configuration.nix to platform agnostic modules
 - [ ] learn how to symlink/wrap neovim and other programs in nix, keeping things declarative
+- [ ] add termux to my nix config
 
