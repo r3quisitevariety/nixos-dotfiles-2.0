@@ -9,7 +9,7 @@
     enable = true;
     repositories = {
       nixos-dotfiles = {
-        path = "${config.home.homeDirectory}nixos-dotfiles-2.0";
+        path = "${config.home.homeDirectory}/nixos-dotfiles-2.0";
         uri = "git@github.com:r3quisitevariety/nixos-dotfiles-2.0.git";
         interval = 100;
       };
