@@ -6,7 +6,7 @@
   # TODO slowly wane off ubuntu's imperative management and declare things like syncthing; server will be NixOS managed in the future.
 
   # auto-pull nixos dotfiles from remote for swifter rebuilds and streamlined workflow
-  # do not edit dotfiles on this host as it will pollute history with automatic commits and cause merge conflicts on desktop
+  # do not edit dotfiles on this host as it will pollute history with automatic commits and cause merge conflicts on desktop.
   services.git-sync = {
     enable = true;
     repositories = {
