@@ -269,16 +269,8 @@
     QT_QPA_PLATFORMTHEME = "qt6ct";
   };
 
-  # aliases
-  environment.shellAliases = {
-    neofetch = "fastfetch";
-    notes = "cd ~/Documents/obsidian && nvim";
-    cp = "cp -r";
-    v = "nvim";
-    g = "git";
-  };
-
   # ── Packages ────────────────────────────────────────────────────────────────
+  # TODO refactor this and put it in modules
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     # ── Wayland / Compositor ──────────────────────────────────────────────────

@@ -14,6 +14,7 @@
   home.stateVersion = "25.11";
 
   home.packages = with pkgs; [
+    # TODO lots of this tooling could go in a platform agnostic module. maybe neovim.nix can be turned into tooling.nix
     proton-vpn
     opencode
     nh
