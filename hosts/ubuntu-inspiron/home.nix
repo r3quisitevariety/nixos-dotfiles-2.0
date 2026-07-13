@@ -5,6 +5,17 @@
 }: {
   # TODO slowly wane off ubuntu's imperative management and declare things like syncthing; server will be NixOS managed in the future.
 
+  services.git-sync = {
+    enable = true;
+    repositories = {
+      nixos-dotfiles = {
+        path = "${config.home.homeDirectory}/home/black/nixos-dotfiles-2.0";
+        uri = "git@github.com:r3quisitevariety/nixos-dotfiles-2.0.git";
+        interval = 1000;
+      };
+    };
+  };
+
   nixpkgs.config.allowUnfree = true;
 
   home.username = "black";
