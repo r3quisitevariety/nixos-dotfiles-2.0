@@ -5,19 +5,6 @@
 }: {
   # TODO slowly wane off ubuntu's imperative management and declare things like syncthing; server will be NixOS managed in the future.
 
-  # auto-pull nixos dotfiles from remote for swifter rebuilds and streamlined workflow
-  # do not edit dotfiles on this host as it will pollute history with automatic commits and cause merge conflicts on desktop.
-  services.git-sync = {
-    enable = true;
-    repositories = {
-      nixos-dotfiles = {
-        path = "${config.home.homeDirectory}/nixos-dotfiles-2.0";
-        uri = "git@github.com:r3quisitevariety/nixos-dotfiles-2.0.git";
-        interval = 100;
-      };
-    };
-  };
-
   nixpkgs.config.allowUnfree = true;
 
   home.username = "black";
