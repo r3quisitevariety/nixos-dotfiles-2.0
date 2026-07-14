@@ -12,9 +12,6 @@
   systemd.coredump.enable = false;
   boot.kernel.sysctl."kernel.core_pattern" = "/dev/null";
 
-  # ── Imports ─────────────────────────────────────────────────────────────────
-  imports = [./hardware-configuration.nix];
-
   # ── Nix / Flakes ────────────────────────────────────────────────────────────
   nix.package = pkgs.lixPackageSets.stable.lix;
   nix.settings.experimental-features = [
