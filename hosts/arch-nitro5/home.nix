@@ -32,6 +32,7 @@
     wget
     yt-dlp
     home-manager
+    keepassxc
     #mpv
     #obsidian
     #pywalfox-native
