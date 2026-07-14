@@ -48,11 +48,11 @@
   ];
 
   imports = [
-    ../../modules/vim.nix
-    ../../modules/tmux.nix
-    ../../modules/music.nix
-    ../../modules/neovim.nix
-    ../../modules/xdg-portal.nix
-    ../../modules/bash.nix
+    ../../modules/home/vim.nix
+    ../../modules/home/tmux.nix
+    ../../modules/home/music.nix
+    ../../modules/home/neovim.nix
+    ../../modules/home/xdg-portal.nix
+    ../../modules/home/bash.nix
   ];
 }

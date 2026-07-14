@@ -34,10 +34,10 @@
   ];
 
   imports = [
-    ../../modules/neovim.nix
-    ../../modules/vim.nix
-    ../../modules/tmux.nix
+    ../../modules/home/neovim.nix
+    ../../modules/home/vim.nix
+    ../../modules/home/tmux.nix
     # rebuild will fail if you dont remove .bashrc + bash_profile on host
-    ../../modules/bash.nix
+    ../../modules/home/bash.nix
   ];
 }
