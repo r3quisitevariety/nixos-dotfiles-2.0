@@ -20,12 +20,11 @@ I am well aware that there are others who would see this design choice as bloat,
 
 I pretty much started off with flakes and so they are familiar to me. I might try out alternatives in the future, but I currently have no issues with them; I am aware that they are in a kind of weird spot development-wise though.
 
-I have dotfiles I manually copied from ~/.config into normie-dots/; ill symlink them once I understand the nix module system; some things I prefer to manage via native config syntax (hyprland, neovim) rather than using nix, as it is more ergonomic and compatible with existing documentation.
-
 ### overview 
 - at the top level, we have the flake.nix which takes in all inputs and passes them to the necessary outputs (standard).
 - hosts/ contains all of my separate hosts. 
 - modules/ contains modules that are both nixos specific and/or home-manager specific; the goal is for these to be host/platform agnostic, allowing me to swap and exchange them in my hosts at will.
+- normie-dots/ contains anything i'd rather configure natively rather than using nix (this has pros like being able to follow native documentation); i often have home.file or mkOutOfStoreSymlink to symlink these files; neovim is managed in a separate repo.
 
 ### roadmap
 - [ ] resolve hard coded hostnames
