@@ -21,6 +21,10 @@
     source = ../../normie-dots/foot.ini;
   };
 
+  home.file.".local/state/noctalia/settings.toml".source =
+    config.lib.file.mkOutOfStoreSymlink
+    "${config.home.homeDirectory}/nixos-dotfiles-2.0/normie-dots/settings.toml";
+
   home.packages = with pkgs; [
     # TODO lots of this tooling could go in a platform agnostic module. maybe neovim.nix can be turned into tooling.nix
     htop

@@ -1,11 +1,11 @@
 [bar.default]
-center = [ "workspaces" ]
+center = [ "workspaces", "recorder_2", "notes", "launcher" ]
 end = [ "group:g3", "clipboard", "group:g4", "group:g5" ]
 margin_edge = 0
 margin_ends = 0
 radius = 0
-radius_bottom_left = -30
-radius_bottom_right = -30
+radius_bottom_left = 80
+radius_bottom_right = 80
 start = [ "wallpaper", "clock", "group:g2", "sysmon", "weather" ]
 
     [[bar.default.capsule_group]]
@@ -66,7 +66,7 @@ type = "media"
 
 [desktop_widgets]
 schema_version = 1
-widget_order = [ "desktop-widget-0000000000000006", "desktop-widget-0000000000000007", "desktop-widget-0000000000000008" ]
+widget_order = [ "desktop-widget-0000000000000006", "desktop-widget-0000000000000008", "desktop-widget-0000000000000009" ]
 
     [desktop_widgets.grid]
     cell_size = 16
@@ -76,8 +76,8 @@ widget_order = [ "desktop-widget-0000000000000006", "desktop-widget-000000000000
     [desktop_widgets.widget.desktop-widget-0000000000000006]
     box_height = 272.1436767578125
     box_width = 386.0
-    cx = 932.453125
-    cy = 491.30078125
+    cx = 960.0
+    cy = 480.58203125
     enabled = false
     output = "eDP-1"
     rotation = 0.0
@@ -91,25 +91,11 @@ widget_order = [ "desktop-widget-0000000000000006", "desktop-widget-000000000000
         image_path = "/home/requisite/Pictures/misc/Frieren_new_funny_thumbnail.webp"
         opacity = 1.0
 
-    [desktop_widgets.widget.desktop-widget-0000000000000007]
-    box_height = 0.0
-    box_width = 0.0
-    cx = 1329.79296875
-    cy = 953.91925048828125
-    enabled = false
-    output = "eDP-1"
-    rotation = 0.0
-    type = "sticker"
-
-        [desktop_widgets.widget.desktop-widget-0000000000000007.settings]
-        image_path = "/home/requisite/Pictures/misc/silly_preview.jpeg"
-        opacity = 1.0
-
     [desktop_widgets.widget.desktop-widget-0000000000000008]
     box_height = 141.203125
     box_width = 378.3828125
-    cx = 614.6171875
-    cy = 312.609375
+    cx = 1590.1640625
+    cy = 786.37109375
     enabled = false
     output = "eDP-1"
     rotation = 0.0
@@ -118,7 +104,17 @@ widget_order = [ "desktop-widget-0000000000000006", "desktop-widget-000000000000
         [desktop_widgets.widget.desktop-widget-0000000000000008.settings]
         background = false
         description = "Actiate Noctlaia"
+        opacity = 1.0
         title = "Activate Noctalia"
+
+    [desktop_widgets.widget.desktop-widget-0000000000000009]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 234.28515625
+    cy = 415.30859375
+    output = "eDP-1"
+    rotation = 0.0
+    type = "noctalia/timer:timer"
 
 [location]
 auto_locate = true
@@ -185,17 +181,21 @@ temperature_day = 10000
 [notification]
 blacklist = [ "tauon", "hyprshot" ]
 
+[plugin_settings."noctalia/notes"]
+notes_dir = "~/Documents/talianotes"
+
 [plugin_settings."noctalia/screen_recorder"]
+audio_source = "both"
 copy_to_clipboard = true
 directory = "~/Videos"
 video_source = "focused"
 
 [plugins]
-enabled = []
+enabled = [ "noctalia/screen_recorder", "noctalia/kaomoji", "noctalia/notes" ]
 
 [shell]
 app_icon_color = "on_surface"
-avatar_path = "/home/requisite/Pictures/misc/b2e253dd2eb170b841469e4053bd15f1.jpg"
+avatar_path = "/home/bean/Pictures/misc/b2e253dd2eb170b841469e4053bd15f1.jpg"
 clipboard_confirm_clear_history = false
 settings_show_advanced = true
 show_location = false
@@ -212,23 +212,53 @@ source = "wallpaper"
 wallpaper_scheme = "m3-tonal-spot"
 
     [theme.templates]
-    builtin_ids = [ "btop", "foot", "gtk3", "gtk4", "ghostty", "hyprland", "kcolorscheme", "mango", "niri", "qt" ]
-    community_ids = [ "pywalfox", "neovim", "vscode", "fuzzel", "discord", "steam", "telegram", "yazi", "zathura", "hyprtoolkit" ]
+    builtin_ids = [ "foot", "gtk3", "gtk4", "ghostty", "hyprland", "kcolorscheme", "mango", "niri", "qt" ]
+    community_ids = [
+        "pywalfox",
+        "zen-browser",
+        "neovim",
+        "vscode",
+        "fuzzel",
+        "discord",
+        "steam",
+        "telegram",
+        "yazi",
+        "zathura",
+        "hyprtoolkit"
+    ]
 
 [wallpaper]
-directory = "/home/makoro/Pictures/wallpapers/local"
+directory = "/home/bean/Pictures/wallpapers/local"
 edge_smoothness = 0.0
 transition = [ "disc" ]
 transition_on_startup = true
 
     [wallpaper.default]
-    path = "/home/makoro/Pictures/wallpapers/local/wallhaven-6l5wpl.png"
+    path = "/home/bean/Pictures/wallpapers/local/wallhaven-6l5wpl.png"
 
     [wallpaper.last]
-    path = "/home/makoro/Pictures/wallpapers/local/wallhaven-6l5wpl.png"
+    path = "/home/bean/Pictures/wallpapers/local/wallhaven-6l5wpl.png"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/makoro/Pictures/wallpapers/local/wallhaven-6l5wpl.png"
+    path = "/home/bean/Pictures/wallpapers/local/wallhaven-6l5wpl.png"
+
+    [[wallpaper.favorite]]
+    community_palette = "Rosey AMOLED"
+    palette_source = "community"
+    path = "/home/bean/Pictures/wallpapers/local/isnt_she_lovely.png"
+    theme_mode = "dark"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/bean/Pictures/wallpapers/local/wallhaven_xe73ro.jpg"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-content"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/bean/Pictures/wallpapers/local/wallhaven-mlgomm.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-content"
 
 [weather]
 address = "Toronto, Canada"
@@ -257,7 +287,13 @@ capsule_fill = "surface_variant"
 capsule_foreground = "secondary"
 format = "{:%A, %B %e, %Y, %I:%M %p}"
 
+[widget.notes]
+type = "noctalia/notes:notes"
+
 [widget.recorder]
+type = "noctalia/screen_recorder:recorder"
+
+[widget.recorder_2]
 type = "noctalia/screen_recorder:recorder"
 
 [widget.spacer_2]
