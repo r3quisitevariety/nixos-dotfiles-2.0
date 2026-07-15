@@ -3,12 +3,15 @@
   pkgs,
   ...
 }: {
-  #TODO - wrap neovim fully in nix, including config
-
-  # puts files from ./config in ~/.config/nvim
+  # syncs files from ./config in ~/.config/nvim; allows for live edits of neovim without having to rebuild
+  # path is absolute; will need to change if you are stealing this module for yourself
   xdg.configFile."nvim".source =
-    #config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/code/neovim-dots";
-    config.lib.file.mkOutOfStoreSymlink "./config";
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles-2.0/modules/home/neovim/config";
+
+  #home.file.".config/nvim" = {
+  #  source = ./config;
+  #  recursive = true;
+  #};
 
   # lsp binaries and toolchains go here, actual configuration lives in neovims native config structure
   home.packages = with pkgs; [
