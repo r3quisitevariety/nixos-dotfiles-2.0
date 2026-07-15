@@ -5,8 +5,8 @@
 }: {
   # syncs files from ./config in ~/.config/nvim; allows for live edits of neovim without having to rebuild
   # path is absolute; will need to change if you are stealing this module for yourself
-  xdg.configFile."nvim".source =
-    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles-2.0/modules/home/neovim/config";
+  #xdg.configFile."nvim".source =
+  #  config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles-2.0/modules/home/neovim/config";
 
   #home.file.".config/nvim" = {
   #  source = ./config;

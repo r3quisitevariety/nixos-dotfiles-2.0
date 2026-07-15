@@ -55,7 +55,7 @@
     ../../modules/home/vim.nix
     ../../modules/home/tmux.nix
     ../../modules/home/music.nix
-    ../../modules/home/neovim
+    ../../modules/home/neovim.nix
     ../../modules/home/xdg-portal.nix
     ../../modules/home/bash.nix
   ];
