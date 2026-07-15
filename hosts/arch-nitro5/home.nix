@@ -17,8 +17,14 @@
     source = ../../normie-dots/hyprland.lua;
   };
 
+  home.file.".config/foot/foot.ini" = {
+    source = ../../normie-dots/foot.ini;
+  };
+
   home.packages = with pkgs; [
     # TODO lots of this tooling could go in a platform agnostic module. maybe neovim.nix can be turned into tooling.nix
+    htop
+    btop
     proton-vpn
     opencode
     nh
@@ -37,18 +43,33 @@
     yt-dlp
     home-manager
     keepassxc
+    zola
+
+    # probably want to put this stuff in a pacman script
     #mpv
     #obsidian
     #pywalfox-native
     #obs-studio
     #steam
-    #wivrn
+    #wivrn-dashboard
+    #wivrn-server
     #xrizer
     #discord
     #tailscale
     #paru
     #lix/nix
     #hyprscroll
+    #reaper
+    #kdenlive
+
+    # noctalia
+    # gwenview
+    fuzzel
+    foot
+    # kdeconnect
+    # zen-browser-bin
+    # prismlauncher
+    # krita
   ];
 
   imports = [
