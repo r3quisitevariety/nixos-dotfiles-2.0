@@ -26,19 +26,5 @@
       bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "wl-copy"
       bind -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "wl-copy"
     '';
-    plugins = with pkgs; [
-      tmuxPlugins.cpu
-      {
-        plugin = tmuxPlugins.resurrect;
-        extraConfig = "set -g @resurrect-strategy-nvim 'session'";
-      }
-      {
-        plugin = tmuxPlugins.continuum;
-        extraConfig = ''
-          set -g @continuum-restore 'on'
-          set -g @continuum-save-interval '15' # minutes
-        '';
-      }
-    ];
   };
 }
