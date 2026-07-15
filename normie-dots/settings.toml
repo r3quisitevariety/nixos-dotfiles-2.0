@@ -1,3 +1,7 @@
+# noctalia settings
+# symlinked to ~/.local/state/noctalia via mkOutOfStoreSymlink 
+
+
 [bar.default]
 center = [ "workspaces", "recorder_2", "notes", "launcher" ]
 end = [ "group:g3", "clipboard", "group:g4", "group:g5" ]
