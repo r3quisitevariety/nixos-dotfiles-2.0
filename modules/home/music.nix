@@ -1,9 +1,23 @@
-{pkgs, ...}: {
-  programs.rmpc.enable = true;
+{
+  pkgs,
+  config,
+  ...
+}: {
+  programs.rmpc = {
+    enable = true;
+  };
+
+  programs.bash = {
+    enable = true;
+    shellAliases = {
+      rmpc = "rmpc update && rmpc"; ## updates mpd database every time rmpc is run
+    };
+  };
 
   services.mpd = {
     enable = true;
-    musicDirectory = "/home/bean/Music/h2"; # remove hardcoding for platform agnosticism
+    musicDirectory = "${config.home.homeDirectory}/Music/keepers";
+    playlistDirectory = "${config.home.homeDirectory}/Music/keepers";
 
     extraConfig = ''
       audio_output {
