@@ -285,7 +285,21 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true 
 -- Screenshots
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("noctalia msg screenshot-region"))
 
-hl.bind(mainMod .. " + TAB", hl.dsp.exec_cmd("noctalia msg window-switcher"))
+-- alt tab!
+hl.bind("ALT + TAB", function()
+	hl.dispatch(hl.dsp.exec_cmd("noctalia msg window-switcher"))
+	hl.dispatch(hl.dsp.submap("window_switcher"))
+end)
+
+hl.define_submap("window_switcher", function()
+	hl.bind("RETURN", hl.dsp.submap("reset")) -- Necessary for the submap to register
+
+	hl.on("layer.closed", function(layer)
+		if layer.namespace == "noctalia-window-switcher" then
+			hl.dispatch(hl.dsp.submap("reset"))
+		end
+	end)
+end)
 
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
@@ -315,56 +329,3 @@ hl.window_rule({
 
 -- For Noctalia Color templates
 require("noctalia").apply_theme()
-
--- overview plugin:
---hl.config({
---	plugin = {
---		scrolloverview = {
---			gesture_distance = 300, -- how far is the "max" for the gesture
---			scale = 0.5, -- preferred overview scale
---			workspace_gap = 100,
---			layout = "vertical", -- vertical or horizontal
---			wallpaper = 0, -- 0: global only, 1: per-workspace only, 2: both
---			blur = false, -- blur only the main overview wallpaper
---
---			shadow = {
---				enabled = false,
---				range = 50,
---				render_power = 3,
---				color = 0xee1a1a1a,
---			},
---		},
---	},
---})
---
----- hyprland.lua
---hl.bind("SUPER + g", function()
---	hl.plugin.scrolloverview.overview("toggle")
---end, { submap_universal = true })
---
---hl.define_submap("scrolloverview", function()
---	hl.bind("SUPER + h", hl.plugin.scrolloverview.navigate("left"))
---	hl.bind("SUPER + j", hl.plugin.scrolloverview.navigate("down"))
---	hl.bind("SUPER + k", hl.plugin.scrolloverview.navigate("up"))
---	hl.bind("SUPER + l", hl.plugin.scrolloverview.navigate("right"))
---	hl.bind("return", function()
---		hl.plugin.scrolloverview.window("select")
---		hl.plugin.scrolloverview.overview("off")
---	end)
---	hl.bind("escape", hl.plugin.scrolloverview.overview("off"))
---end)
-
-hl.bind("ALT + TAB", function()
-	hl.dispatch(hl.dsp.exec_cmd("noctalia msg window-switcher"))
-	hl.dispatch(hl.dsp.submap("window_switcher"))
-end)
-
-hl.define_submap("window_switcher", function()
-	hl.bind("RETURN", hl.dsp.submap("reset")) -- Necessary for the submap to register
-
-	hl.on("layer.closed", function(layer)
-		if layer.namespace == "noctalia-window-switcher" then
-			hl.dispatch(hl.dsp.submap("reset"))
-		end
-	end)
-end)

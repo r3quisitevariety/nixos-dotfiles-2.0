@@ -6,6 +6,7 @@
       neofetch = "fastfetch";
       v = "nvim";
       g = "git";
+      cp = "cp -r";
       ls = "eza --color=auto";
       grep = "grep --color=auto";
       yay = "paru";

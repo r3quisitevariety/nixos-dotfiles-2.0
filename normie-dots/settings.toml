@@ -1,16 +1,14 @@
-# noctalia settings
-# symlinked to ~/.local/state/noctalia via mkOutOfStoreSymlink 
-
+config_version = 2
 
 [bar.default]
-center = [ "workspaces", "recorder_2", "notes", "launcher" ]
+center = [ "workspaces", "recorder_2", "notes", "launcher", "todo" ]
 end = [ "group:g3", "clipboard", "group:g4", "group:g5" ]
 margin_edge = 0
 margin_ends = 0
 radius = 0
 radius_bottom_left = 80
 radius_bottom_right = 80
-start = [ "wallpaper", "clock", "group:g2", "sysmon", "weather" ]
+start = [ "shelly", "nix-monitor", "wallpaper", "clock", "group:g2", "sysmon", "weather" ]
 
     [[bar.default.capsule_group]]
     fill = "surface_variant"
@@ -185,6 +183,14 @@ temperature_day = 10000
 [notification]
 blacklist = [ "tauon", "hyprshot" ]
 
+[plugin_settings."avivbintangaringga/nix-monitor"]
+branch = "nixos-unstable"
+clean_command = "nix-collect-garbage"
+panel_open_near_click = false
+panel_placement = "attached"
+show_update_available_notification = false
+update_command = "cd ~/nixos-dotfiles-2.0 && nix flake update && nh home switch ."
+
 [plugin_settings."noctalia/notes"]
 notes_dir = "~/Documents/talianotes"
 
@@ -195,7 +201,7 @@ directory = "~/Videos"
 video_source = "focused"
 
 [plugins]
-enabled = [ "noctalia/screen_recorder", "noctalia/kaomoji", "noctalia/notes" ]
+enabled = [ "noctalia/screen_recorder", "noctalia/kaomoji", "noctalia/notes", "nightwatch75/todo" ]
 
 [shell]
 app_icon_color = "on_surface"
@@ -208,8 +214,8 @@ show_location = false
     save_to_file = false
 
 [theme]
-builtin = "Ayu"
-community_palette = "Rosey AMOLED"
+builtin = "Rosé Pine"
+community_palette = "Lilac AMOLED"
 custom_palette = "m3-content"
 mode = "dark"
 source = "wallpaper"
@@ -238,13 +244,13 @@ transition = [ "disc" ]
 transition_on_startup = true
 
     [wallpaper.default]
-    path = "/home/bean/Pictures/wallpapers/local/wallhaven-6l5wpl.png"
+    path = "/home/bean/Pictures/wallpapers/local/summertime-rendering.png"
 
     [wallpaper.last]
-    path = "/home/bean/Pictures/wallpapers/local/wallhaven-6l5wpl.png"
+    path = "/home/bean/Pictures/wallpapers/local/summertime-rendering.png"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/bean/Pictures/wallpapers/local/wallhaven-6l5wpl.png"
+    path = "/home/bean/Pictures/wallpapers/local/summertime-rendering.png"
 
     [[wallpaper.favorite]]
     community_palette = "Rosey AMOLED"
@@ -259,10 +265,10 @@ transition_on_startup = true
     wallpaper_scheme = "m3-content"
 
     [[wallpaper.favorite]]
-    palette_source = "wallpaper"
+    community_palette = "Lilac AMOLED"
+    palette_source = "community"
     path = "/home/bean/Pictures/wallpapers/local/wallhaven-mlgomm.png"
     theme_mode = "dark"
-    wallpaper_scheme = "m3-content"
 
 [weather]
 address = "Toronto, Canada"
@@ -291,6 +297,11 @@ capsule_fill = "surface_variant"
 capsule_foreground = "secondary"
 format = "{:%A, %B %e, %Y, %I:%M %p}"
 
+[widget.nix-monitor]
+colorize_glyph = false
+show_text = false
+type = "avivbintangaringga/nix-monitor:nix-monitor"
+
 [widget.notes]
 type = "noctalia/notes:notes"
 
@@ -299,6 +310,9 @@ type = "noctalia/screen_recorder:recorder"
 
 [widget.recorder_2]
 type = "noctalia/screen_recorder:recorder"
+
+[widget.shelly]
+type = "joshuaslate/shelly:shelly"
 
 [widget.spacer_2]
 type = "spacer"
@@ -313,6 +327,9 @@ stat = "gpu_vram"
 [widget.taskbar]
 anchor = true
 group_by_workspace = true
+
+[widget.todo]
+type = "nightwatch75/todo:todo"
 
 [widget.tray]
 capsule = true
