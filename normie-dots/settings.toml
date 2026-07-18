@@ -48,6 +48,14 @@ start = [ "shelly", "nix-monitor", "wallpaper", "clock", "group:g2", "sysmon", "
     opacity = 1.0
     padding = 10.0
 
+[calendar]
+enabled = true
+refresh_minutes = 5
+
+    [calendar.account.personal_google]
+    name = "calendar"
+    type = "google"
+
 [[control_center.shortcuts]]
 type = "wifi"
 
@@ -209,6 +217,7 @@ avatar_path = "/home/bean/Pictures/misc/b2e253dd2eb170b841469e4053bd15f1.jpg"
 clipboard_confirm_clear_history = false
 settings_show_advanced = true
 show_location = false
+time_format = "{:%-I:%M %p}"
 
     [shell.screenshot]
     save_to_file = false
