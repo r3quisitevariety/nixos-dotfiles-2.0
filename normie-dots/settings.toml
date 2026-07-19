@@ -227,7 +227,7 @@ builtin = "Rosé Pine"
 community_palette = "Lilac AMOLED"
 custom_palette = "m3-content"
 mode = "dark"
-source = "wallpaper"
+source = "community"
 wallpaper_scheme = "m3-tonal-spot"
 
     [theme.templates]
@@ -253,13 +253,13 @@ transition = [ "disc" ]
 transition_on_startup = true
 
     [wallpaper.default]
-    path = "/home/bean/Pictures/wallpapers/local/summertime-rendering.png"
+    path = "/home/bean/Pictures/wallpapers/local/wallhaven-mlgomm.png"
 
     [wallpaper.last]
-    path = "/home/bean/Pictures/wallpapers/local/summertime-rendering.png"
+    path = "/home/bean/Pictures/wallpapers/local/wallhaven-mlgomm.png"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/bean/Pictures/wallpapers/local/summertime-rendering.png"
+    path = "/home/bean/Pictures/wallpapers/local/wallhaven-mlgomm.png"
 
     [[wallpaper.favorite]]
     community_palette = "Rosey AMOLED"
