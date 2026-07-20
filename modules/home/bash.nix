@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   # make sure .bashrc and bash_profile are removed locally, otherwise home manager will give you an error as it does not want to delete the files.
   programs.bash = {
     enable = true;
@@ -20,4 +20,8 @@
     VISUAL = "vim";
     EDITOR = "vim";
   };
+
+  home.packages = with pkgs; [
+    ranger
+  ];
 }
