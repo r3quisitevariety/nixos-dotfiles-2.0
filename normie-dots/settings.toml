@@ -227,8 +227,8 @@ builtin = "Rosé Pine"
 community_palette = "Lilac AMOLED"
 custom_palette = "m3-content"
 mode = "dark"
-source = "community"
-wallpaper_scheme = "m3-tonal-spot"
+source = "wallpaper"
+wallpaper_scheme = "m3-content"
 
     [theme.templates]
     builtin_ids = [ "foot", "gtk3", "gtk4", "ghostty", "hyprland", "kcolorscheme", "mango", "niri", "qt" ]
@@ -239,6 +239,7 @@ wallpaper_scheme = "m3-tonal-spot"
         "vscode",
         "fuzzel",
         "discord",
+        "opencode",
         "steam",
         "telegram",
         "yazi",
@@ -253,13 +254,13 @@ transition = [ "disc" ]
 transition_on_startup = true
 
     [wallpaper.default]
-    path = "/home/bean/Pictures/wallpapers/local/wallhaven-mlgomm.png"
+    path = "/home/bean/Pictures/wallpapers/local/wallhaven-qrgqyq.jpg"
 
     [wallpaper.last]
-    path = "/home/bean/Pictures/wallpapers/local/wallhaven-mlgomm.png"
+    path = "/home/bean/Pictures/wallpapers/local/wallhaven-qrgqyq.jpg"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/bean/Pictures/wallpapers/local/wallhaven-mlgomm.png"
+    path = "/home/bean/Pictures/wallpapers/local/wallhaven-qrgqyq.jpg"
 
     [[wallpaper.favorite]]
     community_palette = "Rosey AMOLED"
