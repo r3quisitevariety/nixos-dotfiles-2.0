@@ -27,30 +27,32 @@
 
   home.packages = with pkgs; [
     # probably want to put this stuff in a pacman script
-    fuzzel
-    foot
-    #mpv
-    #obsidian
-    #pywalfox-native
-    #obs-studio
-    #steam
-    #
-    #wivrn-dashboard
-    #wivrn-server
-    #xrizer
-    #
-    #discord
-    #tailscale
-    #paru
-    #lix/nix
-    #hyprscroll
-    #reaper
-    #kdenlive
 
     # noctalia
-    # gwenview
-    # kdeconnect
+    # noctalia-greeter
     # zen-browser-bin
+    # discord
+    # steam
+    # obsidian
+    fuzzel
+    foot
+    # wivrn-dashboard
+    # wivrn-server
+    # xrizer
+    #
+    # nautilus
+    # gwenview
+    #
+    # mpv
+    # obs-studio
+    #
+    # tailscale
+    # paru
+    # lix/nix
+    #
+    # reaper
+    # kdenlive
+    # kdeconnect
     # prismlauncher
     # krita
   ];
