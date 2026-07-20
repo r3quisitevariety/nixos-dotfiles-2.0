@@ -23,5 +23,24 @@
 
   home.packages = with pkgs; [
     ranger
+    opencode
+    htop
+    btop
+    proton-vpn
+    nh
+    microfetch
+    unar
+    fzf
+    ripgrep
+    fd
+    bat
+    eza
+    tree
+    tldr
+    curl
+    wget
+    yt-dlp
+    home-manager
+    zola
   ];
 }

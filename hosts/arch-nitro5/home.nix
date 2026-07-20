@@ -26,38 +26,19 @@
     "${config.home.homeDirectory}/nixos-dotfiles-2.0/normie-dots/settings.toml";
 
   home.packages = with pkgs; [
-    # TODO lots of this tooling could go in a platform agnostic module. maybe neovim.nix can be turned into tooling.nix
-    htop
-    btop
-    proton-vpn
-    opencode
-    nh
-    microfetch
-    unar
-    fzf
-    btop
-    ripgrep
-    fd
-    bat
-    eza
-    tree
-    tldr
-    curl
-    wget
-    yt-dlp
-    home-manager
-    keepassxc
-    zola
-
     # probably want to put this stuff in a pacman script
+    fuzzel
+    foot
     #mpv
     #obsidian
     #pywalfox-native
     #obs-studio
     #steam
+    #
     #wivrn-dashboard
     #wivrn-server
     #xrizer
+    #
     #discord
     #tailscale
     #paru
@@ -68,8 +49,6 @@
 
     # noctalia
     # gwenview
-    fuzzel
-    foot
     # kdeconnect
     # zen-browser-bin
     # prismlauncher
