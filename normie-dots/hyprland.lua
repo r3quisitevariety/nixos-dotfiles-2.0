@@ -58,9 +58,6 @@ hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
 hl.env("XDG_SESSION_TYPE", "wayland")
 hl.env("XDG_SESSION_DESKTOP", "Hyprland")
 
--- Source noctalia colors
--- require("noctalia/noctalia-colors")
-
 -----------------------
 ---- LOOK AND FEEL ----
 -----------------------
@@ -328,9 +325,6 @@ hl.window_rule({
 	},
 	no_focus = true,
 })
-
--- This loads Noctalia-generated Hyprland colors.
---dofile("/home/requisite/.config/hypr/noctalia/noctalia-colors.lua")
 
 -- For Noctalia Color templates
 require("noctalia").apply_theme()
