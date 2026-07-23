@@ -19,8 +19,6 @@
 
   imports = [
     ../../modules/home/neovim.nix
-    ../../modules/home/vim.nix
-    ../../modules/home/tmux.nix
     # rebuild will fail if you dont remove .bashrc + bash_profile on host
     ../../modules/home/shell.nix
   ];
