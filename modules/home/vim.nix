@@ -17,6 +17,5 @@
       syntax on
       nnoremap <leader>w :set wrap!<CR>
     '';
-    #};
   };
 }
