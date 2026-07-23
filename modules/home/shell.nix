@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  nix.package = pkgs.lixPackageSets.stable.lix;
   # make sure .bashrc and bash_profile are removed locally, otherwise home manager will give you an error as it does not want to delete the files.
   programs.bash = {
     enable = true;
