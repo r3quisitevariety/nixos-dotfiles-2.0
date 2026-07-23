@@ -31,8 +31,8 @@
     fuzzel
     foot
     nautilus
-    paru
     # install imperatively like the normie that you are
+    #paru
     # lix/nix
     # noctalia
     # noctalia-greeter
