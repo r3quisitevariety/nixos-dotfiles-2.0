@@ -15,10 +15,12 @@
 
   home.file.".config/hypr/hyprland.lua" = {
     source = ../../normie-dots/hyprland.lua;
+    force = true;
   };
 
   home.file.".config/foot/foot.ini" = {
     source = ../../normie-dots/foot.ini;
+    force = true;
   };
 
   home.file.".local/state/noctalia/settings.toml".source =
