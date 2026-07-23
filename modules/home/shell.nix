@@ -23,6 +23,8 @@
   };
 
   home.packages = with pkgs; [
+    go-grip
+    lazygit
     ranger
     opencode
     htop
@@ -43,5 +45,8 @@
     yt-dlp
     home-manager
     zola
+    go
+    bun
+    rustup
   ];
 }
