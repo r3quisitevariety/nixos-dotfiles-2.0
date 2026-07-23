@@ -62,7 +62,7 @@
   imports = [
     ../../modules/home/music.nix
     ../../modules/home/neovim.nix
-    ../../modules/home/xdg-portal.nix
+    ../../modules/system/xdg-portal.nix
     ../../modules/home/shell.nix
   ];
 }
