@@ -13,9 +13,19 @@
       yay = "paru";
       notes = "cd ~/Documents/masterplan && nvim";
     };
-    bashrcExtra = "
-      PS1='\\[\\e[1;32m\\]\\u@\\h\\[\\e[0m\\]:\\[\\e[1;34m\\]\\w\\[\\e[0m\\]\\$ '
-    ";
+    bashrcExtra = ''
+      PS1='\[\e[1;32m\]\u@\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\]\$ '
+
+      function ya() { # yazi: cd into cwd on quit
+        local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+        yazi "$@" --cwd-file="$tmp"
+        if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+          cd -- "$cwd"
+        fi
+        rm -f -- "$tmp"
+      }
+
+    '';
   };
   home.sessionVariables = {
     VISUAL = "vim";
@@ -23,6 +33,7 @@
   };
 
   home.packages = with pkgs; [
+    yazi
     go-grip
     lazygit
     ranger
