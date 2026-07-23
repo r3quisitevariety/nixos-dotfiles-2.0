@@ -28,30 +28,25 @@
     "${config.home.homeDirectory}/nixos-dotfiles-2.0/normie-dots/settings.toml";
 
   home.packages = with pkgs; [
-    # probably want to put this stuff in a pacman script
-
+    fuzzel
+    foot
+    nautilus
+    paru
+    # install imperatively like the normie that you are
+    # lix/nix
     # noctalia
     # noctalia-greeter
     # zen-browser-bin
     # discord
     # steam
     # obsidian
-    fuzzel
-    foot
     # wivrn-dashboard
     # wivrn-server
     # xrizer
-    #
-    # nautilus
     # gwenview
-    #
     # mpv
     # obs-studio
-    #
     # tailscale
-    # paru
-    # lix/nix
-    #
     # reaper
     # kdenlive
     # kdeconnect

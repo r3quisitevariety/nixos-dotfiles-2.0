@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  # declarative hyprland xdg portal settings
   home.sessionVariables = {
     XDG_CURRENT_DESKTOP = "Hyprland";
   };
@@ -9,7 +10,8 @@
     #xdg-desktop-portal-hyprland
     #xdg-desktop-portal-kde
     #xdg-desktop-portal-gtk
-    #nwg-look adw-gtk-theme
+    nwg-look
+    #adw-gtk-theme
     #qt6ct-kde
   ];
 
