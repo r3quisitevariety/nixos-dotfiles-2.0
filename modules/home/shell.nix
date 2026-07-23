@@ -28,8 +28,8 @@
     '';
   };
   home.sessionVariables = {
-    VISUAL = "nvim";
-    EDITOR = "nvim";
+    VISUAL = "vim";
+    EDITOR = "vim";
   };
 
   home.packages = with pkgs; [
