@@ -34,6 +34,8 @@
   };
 
   home.packages = with pkgs; [
+    git
+    fastfetch
     yazi
     go-grip
     lazygit
