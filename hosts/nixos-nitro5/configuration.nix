@@ -5,7 +5,6 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ./preservation.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
