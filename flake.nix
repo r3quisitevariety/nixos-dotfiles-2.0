@@ -52,7 +52,7 @@
     };
 
     # nixos + nvidia config
-    nixosConfigurations.variety = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.nitro5 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {inherit inputs;};
       modules = [
@@ -62,7 +62,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.extraSpecialArgs = {inherit inputs;};
-          home-manager.users.requisite = import ./hosts/nixos-nitro5/home.nix;
+          home-manager.users.nix = import ./hosts/nixos-nitro5/home.nix;
         }
       ];
     };

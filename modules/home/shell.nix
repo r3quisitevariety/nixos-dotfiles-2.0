@@ -40,7 +40,6 @@
     opencode
     htop
     btop
-    proton-vpn
     nh
     microfetch
     unar
