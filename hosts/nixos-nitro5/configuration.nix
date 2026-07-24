@@ -10,6 +10,9 @@
 
   services.locate.enable = false;
 
+  programs.steam.enable = true;
+  programs.niri.enable = true;
+
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
@@ -119,7 +122,6 @@
   services.greetd = {
     enable = true;
     settings.default_session = {
-      #command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --remember-session --cmd start-hyprland";
       command = "/run/current-system/sw/bin/noctalia-greeter-session -- --session Hyprland";
       user = "nix";
     };

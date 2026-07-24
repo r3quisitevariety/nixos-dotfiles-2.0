@@ -1,6 +1,8 @@
-{ pkgs, config, ... }:
-
 {
+  pkgs,
+  config,
+  ...
+}: {
   environment.systemPackages = with pkgs; [
     xrizer
     opencomposite
@@ -12,6 +14,14 @@
     openFirewall = true;
     # Run WiVRn as a systemd service on startup
     autoStart = true;
-    package = (pkgs.wivrn.override { cudaSupport = true; });
+    #package = (pkgs.wivrn.override { cudaSupport = true; });
   };
+
+  networking.firewall.allowedTCPPorts = [
+    9757
+  ];
+
+  networking.firewall.allowedUDPPorts = [
+    9757
+  ];
 }
