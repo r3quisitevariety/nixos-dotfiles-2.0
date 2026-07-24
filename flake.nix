@@ -23,6 +23,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    preservation = {
+      url = "github:nix-community/preservation";
+    };
   };
 
   outputs = {
@@ -57,6 +61,7 @@
       specialArgs = {inherit inputs;};
       modules = [
         ./hosts/nixos-nitro5
+        inputs.preservation.nixosModules.default
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;

@@ -16,7 +16,7 @@
   services.locate.enable = false;
 
   # ── Nix / Flakes ────────────────────────────────────────────────────────────
-  nix.package = pkgs.lixPackageSets.stable.lix;
+  #nix.package = pkgs.lixPackageSets.stable.lix;
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
