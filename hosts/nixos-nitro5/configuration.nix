@@ -12,6 +12,9 @@
   systemd.coredump.enable = false;
   boot.kernel.sysctl."kernel.core_pattern" = "/dev/null";
 
+  # stop updatedb indexing which is useless since fd/rg exists anyways
+  services.locate.enable = false;
+
   # ── Nix / Flakes ────────────────────────────────────────────────────────────
   nix.package = pkgs.lixPackageSets.stable.lix;
   nix.settings.experimental-features = [
