@@ -14,7 +14,7 @@
     openFirewall = true;
     # Run WiVRn as a systemd service on startup
     autoStart = true;
-    #package = (pkgs.wivrn.override { cudaSupport = true; });
+    package = pkgs.wivrn.override {cudaSupport = true;};
   };
 
   networking.firewall.allowedTCPPorts = [
@@ -23,5 +23,9 @@
 
   networking.firewall.allowedUDPPorts = [
     9757
+  ];
+
+  programs.steam.extraCompatPackages = with pkgs; [
+    proton-ge-bin
   ];
 }

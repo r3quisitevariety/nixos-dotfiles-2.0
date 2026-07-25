@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   home.username = "nix";
   home.homeDirectory = "/home/nix";
   home.stateVersion = "25.11";
@@ -19,11 +19,17 @@
     enable = true;
   };
 
+  home.packages = with pkgs; [
+    obsidian
+    anki
+  ];
+
   imports = [
     # TODO i commented these out because i have yet to resolve hostname hardcoding for modules
     ../../modules/home/neovim.nix
     ../../modules/home/shell.nix
     ../../modules/home/music.nix
+    ../../modules/home/zen.nix
     #../../modules/vr.nix
     #../../modules/obs.nix
     #../../modules/substituters.nix
